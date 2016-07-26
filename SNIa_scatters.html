@@ -14,7 +14,7 @@
             shape-rendering: crispEdges;
         }
 
-        .dot {
+        .dot2 {
             fill: steelblue;
         }
 
@@ -23,21 +23,38 @@
             pointer-events: all;
         }
 
-        #tooltip {
+        #SNIAText {
             position: absolute;
 
         }
 
-        #tooltip.hidden {
+        #SNIAText.hidden {
             display: none;
+        }
+
+        #L3Img.hidden {
+            display: none;
+        }
+
+        #L3Img {
+            position: absolute;
+            top: -640px;
+            left: -960px;
+            pointer-events: none;
+            opacity: 0.95;
         }
     </style>
 </head>
 <body>
 
-<div id="tooltip" class="hidden">
-    <p>SNIA <span>100</span></p>
+<div id="SNIAText" class="hidden">
+    <p>SNIA <span id="SNIAID">0</span></p>
 </div>
+
+<div id="L3Img" class="hidden">
+
+</div>
+
 
 <script>
     // true is scatter for M0 and x, false is scatter for M0 and c
@@ -99,15 +116,49 @@
             .attr("cy", function(d) {
                 return y(d.x);
             })
-            .attr("r", 6)
+            .attr("r", 8)
+            .attr("stroke", function(d) {
+                if (d.key >= 1 && d.key <= 10) {
+                    return "yellow";
+                } else {
+                    return "none";
+                }
+            })
+            .attr("fill", function(d) {
+                var color = data2[d.key-1].color;
+                var R = Math.floor((0.3 + color) * 255 / 0.6);
+                var B = Math.floor((0.3 - color) * 255 / 0.6);
+                if (d.key >= 0 && d.key <= 10) {
+                    return "yellow";
+                }
+                return "rgb(" + R + ", 0, " + B + ")";
+            })
             .on("mouseover", function(d) {
-                d3.select("#tooltip")
+                d3.select("#SNIAText")
                         .style("left", (width + 100) + "px")
                         .style("top", 0 + "px")
-                        .classed("hidden", false);
+                        .select("#SNIAID")
+                        .text(d.key);
+
+                d3.select("#SNIAText").classed("hidden", false);
+
+                createLevel3Image(d.key);
+                d3.select("#L3Img")
+                        .classed("hidden", false)
+                        .transition()
+                        .duration(2000)
+                        .attr("x", "25px")
+                        .attr("y", "25px");
+                /*
+                showLevel3Image(d.key)
+                        .transition()
+                        .duration(1000);
+                */
             })
             .on("mouseout", function() {
-                d3.select("#tooltip").classed("hidden", true);
+                d3.select("#SNIAText").classed("hidden", true);
+                d3.select("#L3Img").classed("hidden", true);
+                d3.select(".imgx").remove();
             });
 
     // define zoom attr
@@ -119,7 +170,7 @@
 
                 g_dots.attr("transform", d3.event.transform);
                 //var curScale = g_dots.attr("transform").split(" ")[1].match(regex).map(function(v) { return parseFloat(v); })[0];
-                circles.attr("r", 6 / d3.event.transform.k);
+                circles.attr("r", 8 / d3.event.transform.k);
 
                 gx.call(xAxis.scale(d3.event.transform.rescaleX(x)));
                 gy.call(yAxis.scale(d3.event.transform.rescaleY(y)));
@@ -170,6 +221,16 @@
                 //d3.selection.call(zoom.transform, d3.zoomIdentity);
                 //d3.selection.call(zoom.scaleTo, d3.zoomIdentity);
             });
+
+    function createLevel3Image(SNid) {
+        var imgx = document.createElement("img");
+        imgx.setAttribute("src", "SNIa_pics/" + SNid + ".jpg");
+        imgx.setAttribute("class", "imgx");
+        imgx.setAttribute("width", 960);
+        imgx.setAttribute("width", 640);
+
+        document.getElementById("L3Img").appendChild(imgx);
+    }
 
     /*
     d3.select("body")
