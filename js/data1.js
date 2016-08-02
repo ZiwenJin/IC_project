@@ -1,3 +1,4 @@
+// data from Xiyun: posterior data
 var data1 = [
 { "key":   1, "m_mu": -19.3379, "x": 1.2156, "c": -0.0061 },
 { "key":   2, "m_mu": -19.1456, "x": 0.8133, "c": 0.0062 },

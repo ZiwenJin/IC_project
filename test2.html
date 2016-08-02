@@ -3,27 +3,236 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Scatters</title>
+    <title>test2</title>
     <script type="text/javascript" src="js/d3.v4.js"></script>
+    <script type="text/javascript" src="js/data1.js"></script>
     <script type="text/javascript" src="js/data2.js"></script>
+    <script type="text/javascript" src="js/data3.js"></script>
 
 </head>
 <body>
 
+<div id="L3Img">
+
+</div>
+
 <script>
 
-    var num = [1, 1, 0];
-    var base = 2;
-    var value = 0;
+    var widthL3 = 800;
+    var heightL3 = 800;
+    var width33 = 200;
+    var height33 = 200;
+    var padding = 50;
 
-    for (var i=num.length-1; i>=0; i--) {
-        var digit = num[i];
-        var exp = num.length - 1 - i;
-        value += digit * Math.pow(base, exp);
-        console.log(i + " " + digit + " " + exp + " " + value);
+    /*
+    var x_M0 = d3.scaleLinear()
+            .domain([Math.floor(d3.min(M0)*100)/100, Math.ceil(d3.max(M0)*100)/100])
+            .range([0, width33]);
+    var bins_M0 = d3.histogram()
+            .domain(x_M0.domain())
+            .thresholds(x_M0.ticks(10))
+            (M0);
+    var y_M0 = d3.scaleLinear()
+            .domain([0, d3.max(bins_M0, function(d) { return d.length; })])
+            .range([height33, 0]);
+    */
+
+    /*
+    var bins_x1Star = d3.histogram()
+            .domain([Math.floor(d3.min(x1Star)*100)/100, Math.ceil(d3.max(x1Star)*100)/100])
+            .thresholds(xHistL3.ticks(10))
+            (x1Star);
+
+    var bins_num_x1Star = yHistL3
+            .domain([0, d3.max(bins_x1Star, function(d) { return d.length; })]);
+
+    var bins_cStar = d3.histogram()
+            .domain([Math.floor(d3.min(cStar)*100)/100, Math.ceil(d3.max(cStar)*100)/100])
+            .thresholds(xHistL3.ticks(10))
+            (cStar);
+
+    var bins_num_x1Star = yHistL3
+            .domain([0, d3.max(bins_cStar, function(d) { return d.length; })]);
+    */
+
+    var svgL3 = d3.select("#L3Img")
+            .append("svg")
+            .attr("class", "mainSVG")
+            .attr("width", widthL3)
+            .attr("height", heightL3);
+
+    /*
+    var svg1 = d3.select(".mainSVG")
+            .append("svg")
+            .attr("class", "miniSVG histogram")
+            .attr("width", width33)
+            .attr("height", height33)
+            .attr("transform", "translate(" + padding + ", " + padding + ")")
+            .append("g");
+
+    var bars_M0 = svg1.selectAll(".bar")
+            .data(bins_M0)
+            .enter()
+            .append("g")
+            .attr("class", "bar")
+            .attr("transform", function(d) { return "translate(" + x_M0(d.x0) + ", " + y_M0(d.length) + ")"; });
+
+    bars_M0.append("rect")
+            .attr("x", 1)
+            .attr("width", x_M0(bins_M0[0].x1) - x_M0(bins_M0[0].x0) - 2)
+            .attr("height", function(d) { return height33 - y_M0(d.length); });
+    */
+
+    drawHistogram(M0, 0);
+    drawScatter(x1Star, M0, 1);
+    drawScatter(cStar, M0, 2);
+    drawScatter(M0, x1Star, 3);
+    drawHistogram(x1Star, 4);
+    drawScatter(cStar, x1Star, 5);
+    drawScatter(M0, cStar, 6);
+    drawScatter(x1Star, cStar, 7);
+    drawHistogram(cStar, 8);
+
+
+    function drawHistogram(xData, id) {
+        var x = d3.scaleLinear()
+                .domain([Math.floor(d3.min(xData)*100)/100, Math.ceil(d3.max(xData)*100)/100])
+                .range([0, width33]);
+        var bins = d3.histogram()
+                .domain(x.domain())
+                .thresholds(x.ticks(5))
+                (xData);
+        var y = d3.scaleLinear()
+                .domain([0, d3.max(bins, function(d) { return d.length; })])
+                .range([height33, 0]);
+
+        // id = [0, ..., 8]
+        var xPos = id % 3 + 1;
+        var yPos = Math.floor(id / 3) + 1;
+        d3.select(".mainSVG")
+                .append("svg")
+                .attr("id", "svg" + id)
+                .attr("class", "miniSVG histogram")
+                .attr("width", width33 + padding)
+                .attr("height", height33 + padding)
+                .attr("x", xPos*padding + (xPos-1)*width33)
+                .attr("y", yPos*padding + (yPos-1)*height33);
+
+        /*
+         d3.select(".mainSVG")
+         .append("svg")
+         .attr("id", "svg" + id)
+         .attr("class", "miniSVG histogram")
+         .attr("width", width33)
+         .attr("height", width33)
+         .attr("transform", "translate(" + (xPos*padding + (xPos-1)*width33) + ", " + (yPos*padding + (yPos-1)*height33) + ")");
+         */
+
+        d3.select("#svg" + id)
+                .append("g")
+                .attr("id", "g" + id)
+                .selectAll("rect")
+                .data(bins)
+                .enter()
+                .append("rect")
+                .attr("transform", function(d) { return "translate(" + x(d.x0) + ", " + y(d.length) + ")"; })
+                .attr("x", 1)
+                .attr("width", x(bins[0].x1) - x(bins[0].x0) - 2)
+                .attr("height", function(d) { return height33 - y(d.length); });
+
+        var x = d3.select("#svg" + id)
+                .append("g")
+                .attr("class", "axisX" + id)
+                .attr("transform", "translate(0," + height33 + ")")
+                .call(d3.axisBottom(x));
+        //console.log(x);
+
+        /*
+         d3.select("#svg" + id)
+         .selectAll(".bar")
+         .data(bins)
+         .enter()
+         .append("g")
+         .attr("class", "bars" + id)
+         .attr("transform", function(d) { return "translate(" + x(d.x0) + ", " + y(d.length) + ")"; });
+
+         d3.select(".bars" + id)
+         .append("rect")
+         .attr("x", 1)
+         .attr("width", x(bins[0].x1) - x(bins[0].x0) - 2)
+         .attr("height", function(d) { return height33 - y(d.length); });
+         */
+    }
+    d3.select(".axisX0").tickValues(10);
+
+    function drawScatter(xData, yData, id) {
+        var x = d3.scaleLinear()
+                .domain([d3.min(xData), d3.max(xData)])
+                .range([0, width33]);
+        var y = d3.scaleLinear()
+                .domain([d3.min(yData), d3.max(yData)])
+                .range([height33, 0]);
+
+        // id = [0, ..., 8]
+        var xPos = id % 3 + 1;
+        var yPos = Math.floor(id / 3) + 1;
+
+        d3.select(".mainSVG")
+                .append("svg")
+                .attr("id", "svg" + id)
+                .attr("class", "miniSVG scatter")
+                .attr("width", width33 + padding)
+                .attr("height", height33 + padding)
+                .attr("x", xPos*padding + (xPos-1)*width33)
+                .attr("y", yPos*padding + (yPos-1)*height33);
+
+        d3.select("#svg" + id)
+                .append("g")
+                .attr("id", "g" + id)
+                .selectAll("circle")
+                .data(d3.range(100))  // .data(d3.range(xData.length))
+                .enter()
+                .append("circle")
+                .attr("cx", function(d) { return x(xData[d]); })
+                .attr("cy", function(d) { return y(yData[d]); })
+                .attr("r", 2);
+
+        d3.select("#svg" + id)
+                .append("g")
+                .attr("class", "axisX" + id)
+                .attr("transform", "translate(" + 50 + ", " + height33 + ")")
+                .call(d3.axisBottom(x));
+
+        d3.select("#svg" + id)
+                .append("g")
+                .attr("class", "axisY" + id)
+                .attr("transform", "translate(" + 50 + ", 0)")
+                .call(d3.axisLeft(y));
     }
 
-    alert(value);
+    function zoomHistogram(gid) {
+        d3.zoom()
+                .scaleExtent([0.5, 5])
+                .on("zoom", function() {
+
+                })
+    }
+
+    function zoomScatter(gid) {
+        return d3.zoom()
+                .scaleExtent([0.5, 10])
+                //.translateExtent([[-1000, -1000], [1000, 1000]])
+                .on("zoom", function() {
+                    d3.select("#" + gid).attr("transform", d3.event.transform);
+                    d3.select("#" + gid)
+                            .selectAll("circle")
+                            .attr("r", 2 / d3.event.transform.k);
+
+                });
+    }
+
+    d3.select("#svg1").call(zm = zoomScatter("g1"));
+    d3.select("#svg2").call(zm = zoomScatter("g2"));
 
 </script>
 </body>
