@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>L1</title>
+    <script type="text/javascript" src="js/d3.v4.js"></script>
+    <script type="text/javascript" src="js/data1.js"></script>
+    <script type="text/javascript" src="js/data2.js"></script>
+    <script type="text/javascript" src="js/data3.js"></script>
+    <script type="text/javascript" src="js/data5.js"></script>
+    <script type="text/javascript" src="js/jquery-3.1.0.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="js/jquery-ui.css">
+
+    <style>
+        body {
+            font: 10px sans-serif;
+        }
+
+        .axis path,
+        .axis line {
+            fill: none;
+            stroke: #000;
+            shape-rendering: crispEdges;
+        }
+
+        .area {
+            fill: lightsteelblue;
+        }
+
+        .line {
+            fill: none;
+            stroke: steelblue;
+            stroke-width: 1.5px;
+        }
+
+        .dot {
+            fill: white;
+            stroke: steelblue;
+            stroke-width: 1.5px;
+        }
+
+        #L1Dialog {
+            position: absolute;
+            width: 100px;
+            height: auto;
+            padding: 10px;
+            background-color: white;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            border-radius: 10px;
+            -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+            -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+            pointer-events: none;
+        }
+
+        #L1Dialog.hidden {
+            display: none;
+        }
+
+        #L1Dialog p {
+            margin: 0;
+            font-family: sans-serif;
+            font-size: 12px;
+            line-height: 20px;
+        }
+
+        #hInput {
+            margin: 20px 30px 20px 30px;
+            width: 500px;
+        }
+        #hInput > .ui-slider-handle {
+            text-decoration: none;
+            width: 35px;
+            text-align: center;
+        }
+        #varInput {
+            margin: 20px 30px 20px 30px;
+            width: 500px;
+        }
+        #varInput > .ui-slider-handle {
+            text-decoration: none;
+            width: 35px;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+
+<!-- Slider -->
+
+<h2 class="sliderHeaders">M0 Slider</h2>
+
+<div id="hInput"></div>
+<div id="varInput"></div>
+
+<div id="L1Dialog" class="hidden">
+    <p><strong>Label</strong></p>
+    <p><span id="value">100</span></p>
+</div>
+
+<script>
+
+    var hMIN = 0.001;
+    var hMAX = 0.1;
+    var h = hMIN;
+    var varMIN = 0.05;
+    var varMAX = 0.5;
+    var variance = varMIN;
+    var M0KDEResult;
+
+    var hInput = $("#hInput");
+    var varInput = $("#varInput");
+
+    var hUpdateSlider = function (e, ui) {
+        h = $("#hInput").slider("option", "value") * (hMAX - hMIN) / 100 + hMIN;
+        $("#hInput > .ui-slider-handle").text(ui.value);
+        M0KDEResult = KernalDensityEstimation(M0Post);
+        drawKDE();
+    };
+    var varUpdateSlider = function (e, ui) {
+        variance = $("#varInput").slider("option", "value") * (varMAX - varMIN) / 100 + varMIN;
+        $("#varInput > .ui-slider-handle").text(ui.value);
+        M0KDEResult = KernalDensityEstimation(M0Post);
+        drawKDE();
+    };
+
+    hInput.slider({
+        min: 0,
+        max: 100,
+        create: function (e, ui) {
+            h = hMIN;
+            $(".ui-slider-handle").text(0);
+        },
+        slide: hUpdateSlider,
+        value: 0
+    });
+    varInput.slider({
+        min: 0,
+        max: 100,
+        create: function (e, ui) {
+            variance = varMIN;
+            $(".ui-slider-handle").text(0);
+        },
+        slide: varUpdateSlider,
+        value: 0
+    });
+
+
+    var NUM = 740;
+    var marginL1 = { top: 20, right: 20, bottom: 40, left: 30 };
+    var widthL1 = 600 - marginL1.left - marginL1.right;
+    var heightL1 = 400 - marginL1.top - marginL1.bottom;
+
+    function KernalDensityEstimation(dataset) {
+        var extent = d3.extent(dataset);
+        var diff = Math.round((extent[1] - extent[0]) / 4 * 10000) / 10000;
+        extent[0] = extent[0] - diff;
+        extent[1] = extent[1] + diff;
+
+        var xDomain = [];
+        for (var i=extent[0]; i<=extent[1]; i=i+0.001) {
+            xDomain.push(Math.round(i*10000) / 10000);
+        }
+        var resultKDE = [];
+        for (var i=0; i<xDomain.length; i++) {
+            resultKDE.push(0);
+        }
+        for (var j=0; j<M0Post.length; j++) {
+            var resultSingle = [];
+            for (var i=0; i<xDomain.length; i++) {
+                resultSingle.push(Math.exp(-Math.pow((xDomain[i] - dataset[j]) / h, 2) / (2 * variance * variance)) / Math.sqrt(2*variance*variance*Math.PI));
+                resultKDE[i] = resultKDE[i] + resultSingle[i];
+
+            }
+            //console.log(resultSingle + "\n");
+            //console.log(resultKDE + "\n");
+        }
+        for (var data in resultKDE) {
+            resultKDE[data] = resultKDE[data] / (NUM * h);
+        }
+        return [extent, xDomain, resultKDE];
+    }
+
+    /*
+    var M0PostExtent = d3.extent(M0Post);
+    //console.log(M0PostExtent);
+    var M0PostVar = Math.round((M0PostExtent[1] - M0PostExtent[0]) / 4 * 100) / 100;
+    M0PostExtent[0] = M0PostExtent[0] - M0PostVar;
+    M0PostExtent[1] = M0PostExtent[1] + M0PostVar;
+    //console.log(M0PostExtent);
+
+    var M0KDEX = [];
+    for (var i=M0PostExtent[0]; i<=M0PostExtent[1]; i=i+0.001) {
+        M0KDEX.push(Math.round(i*10000) / 10000);
+    }
+    //console.log(M0KDEX);
+    var M0KDEResult = [];
+    for (var i=0; i<M0KDEX.length; i++) {
+        M0KDEResult.push(0);
+    }
+    for (var data in M0Post) {
+        var M0KDESingeResult = []
+        for (var i=0; i<M0KDEX.length; i++) {
+            M0KDESingeResult.push(Math.exp(-(Math.pow(((M0KDEX[i] - M0Post[data]) / h), 2) / (2 * variance * variance))) / Math.sqrt(2*variance*variance*Math.PI));
+            M0KDEResult[i] = M0KDEResult[i] + M0KDESingeResult[i];
+        }
+    }
+    //console.log(M0KDEResult);
+    */
+
+    M0KDEResult = KernalDensityEstimation(M0Post);
+
+    var x = d3.scaleLinear()
+            .domain(M0KDEResult[0])
+            .range([0, widthL1]);
+
+    var y = d3.scaleLinear()
+            .domain([0, d3.max(M0KDEResult[2])])
+            .range([heightL1, 0]);
+
+    var svg = d3.select("body")
+            .append("svg")
+            .attr("width", widthL1 + marginL1.left + marginL1.right)
+            .attr("height", heightL1 + marginL1.top + marginL1.bottom)
+            .append("g")
+            .attr("transform", "translate(" + marginL1.left + ", " + marginL1.top + ")");
+
+    svg.append("g")
+            .attr("class", "axis axis--x")
+            .attr("transform", "translate(0," + heightL1 + ")")
+            .call(d3.axisBottom().scale(x));
+
+    svg.append("g")
+            .attr("class", "axis axis--y")
+            .call(d3.axisLeft().scale(y));
+
+
+
+    drawKDE();
+
+    function drawKDE() {
+        d3.selectAll(".lines").remove();
+        d3.selectAll(".dots").remove();
+
+        var line = d3.line()
+                .x(function (d, i) {
+                    return x(M0KDEResult[1][i]);
+                })
+                .y(function (d, i) {
+                    return y(M0KDEResult[2][i]);
+                });
+
+        var path = svg.append("g")
+                .attr("class", "lines")
+                .append("path")
+                .attr("class", "line")
+                .attr("d", line(M0KDEResult[1]));
+
+        svg.append("g")
+                .attr("class", "dots")
+                .selectAll("circle")
+                .data(M0Post)
+                .enter()
+                .append("circle")
+                .attr("class", "dot")
+                .attr("cx", function (d, i) {
+                    return x(M0Post[i]);
+                })
+                .attr("cy", function (d, i) {
+                    return y(M0KDEResult[2][Math.round((M0Post[i] - M0KDEResult[0][0]) / 0.001)]);
+                })
+                .attr("r", 2)
+                .on("mouseover", function(d) {
+                    var xPosition = parseFloat(d3.select(this).attr("cx")) + 50;
+                    var yPosition = parseFloat(d3.select(this).attr("cy")) / 2 + 300;
+                    console.log(xPosition + ", " + yPosition);
+                    d3.select("#L1Dialog")
+                            .style("left", xPosition + "px")
+                            .style("top", yPosition + "px")
+                            .select("#value")
+                            .text(d);
+
+                    d3.select("#L1Dialog").classed("hidden", false);
+                })
+                .on("mouseout", function() {
+                    d3.select("#L1Dialog").classed("hidden", true);
+                })
+    }
+
+</script>
+
+
+</body>
+</html>

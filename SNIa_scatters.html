@@ -8,6 +8,7 @@
     <script type="text/javascript" src="js/data1.js"></script>
     <script type="text/javascript" src="js/data2.js"></script>
     <script type="text/javascript" src="js/data3.js"></script>
+    <script type="text/javascript" src="js/data5.js"></script>
 
     <style type="text/css">
         .axis {
@@ -34,7 +35,7 @@
             display: none;
         }
 
-        #L3Img.hidden {
+        #L3Img.hidden0 {
             display: none;
         }
 
@@ -42,8 +43,12 @@
             position: absolute;
             top: 25px;
             left: 25px;
-            /* pointer-events: none; */
+            pointer-events: none;
             opacity: 0.95;
+        }
+
+        .mainSVG {
+            background-color: gray;
         }
     </style>
 </head>
@@ -53,8 +58,7 @@
     <p>SNIA <span id="SNIAID">0</span></p>
 </div>
 
-<div id="L3Img" class="hidden" width="800" height="600">
-
+<div id="L3Img" class="hidden0" width="800" height="600">
 </div>
 
 
@@ -118,20 +122,10 @@
                 return y(d.x);
             })
             .attr("r", 8)
-            .attr("stroke", function(d) {
-                if (d.key >= 1 && d.key <= 10) {
-                    return "yellow";
-                } else {
-                    return "none";
-                }
-            })
             .attr("fill", function(d) {
                 var color = data2[d.key-1].color;
                 var R = Math.floor((0.3 + color) * 255 / 0.6);
                 var B = Math.floor((0.3 - color) * 255 / 0.6);
-                if (d.key >= 0 && d.key <= 10) {
-                    return "yellow";
-                }
                 return "rgb(" + R + ", 0, " + B + ")";
             })
             .on("mouseover", function(d) {
@@ -148,9 +142,14 @@
                 d3.select("#SNIAText").classed("hidden", true);
             })
             .on("click", function(d) {
-                if (d3.select("#L3Img").attr("class") == "hidden") {
-                    createLevel3Image(d.key);
-                    d3.select("#L3Img").classed("hidden", false);
+                if (d3.select("#L3Img").attr("class") == "hidden0") {
+                    alert(d3.select("#L3Img").attr("class"));
+                    createLevel3Image2(d.key - 1, "red");
+                    d3.select("#L3Img").attr("class", "hidden1");
+                } else if (d3.select("#L3Img").attr("class") == "hidden1") {
+                    alert(d3.select("#L3Img").attr("class"));
+                    createLevel3Image2(d.key - 1, "green");
+                    d3.select("#L3Img").attr("class", "hidden2");
                 }
             });
 
@@ -158,8 +157,8 @@
     d3.select("body")
             .on("keydown", function(d) {
                 if (event.key == "Escape") {
-                    d3.select("#L3Img").classed("hidden", true);
-                    d3.select(".imgx").remove();
+                    d3.select("#L3Img").attr("class", "hidden0");
+                    d3.select(".mainSVG").remove();
                 }
             });
 
