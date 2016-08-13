@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dda3e59e-eff2-4570-a9f1-2e2ecf378ba5" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test4_multi_L1.html" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test3_L1.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test4_multi_L1.html" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/data3.js" afterPath="$PROJECT_DIR$/js/data3.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SNIa_KDE_M_0.html" afterPath="$PROJECT_DIR$/SNIa_KDE_M_0.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SNIa_scatters.html" afterPath="$PROJECT_DIR$/SNIa_scatters.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/draw_L3.js" afterPath="$PROJECT_DIR$/js/draw_L3.js" />
     </list>
     <ignored path="welcome.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,8 +31,8 @@
       <file leaf-file-name="SNIa_histo_M_0.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SNIa_histo_M_0.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="870">
-              <caret line="59" column="22" selection-start-line="59" selection-start-column="22" selection-end-line="64" selection-end-column="52" />
+            <state relative-caret-position="285">
+              <caret line="22" column="15" selection-start-line="22" selection-start-column="15" selection-end-line="22" selection-end-column="15" />
               <folding>
                 <element signature="e#397#33406#0" expanded="false" />
               </folding>
@@ -40,11 +43,9 @@
       <file leaf-file-name="SNIa_KDE_M_0.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SNIa_KDE_M_0.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="11" selection-end-column="33008" />
-              <folding>
-                <element signature="e#159#33168#0" expanded="false" />
-              </folding>
+            <state relative-caret-position="178">
+              <caret line="318" column="34" selection-start-line="318" selection-start-column="34" selection-end-line="318" selection-end-column="34" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -52,66 +53,21 @@
       <file leaf-file-name="SNIa_scatters.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SNIa_scatters.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="146" column="38" selection-start-line="146" selection-start-column="20" selection-end-line="146" selection-end-column="38" />
+            <state relative-caret-position="-210">
+              <caret line="10" column="48" selection-start-line="10" selection-start-column="48" selection-end-line="10" selection-end-column="48" />
               <folding>
-                <element signature="n#style#0;n#head#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="e#2646#2675#0" expanded="false" />
-                <element signature="e#2959#3008#0" expanded="false" />
-                <element signature="e#3046#3092#0" expanded="false" />
-                <element signature="e#3447#3758#0" expanded="false" />
-                <element signature="e#3799#3878#0" expanded="false" />
-                <element signature="e#4974#5292#0" expanded="false" />
-                <element signature="e#5532#7041#0" expanded="false" />
+                <element signature="e#5923#6241#0" expanded="false" />
+                <element signature="e#6481#7990#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="draw_L3.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="draw_L3.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/draw_L3.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1080">
-              <caret line="119" column="16" selection-start-line="119" selection-start-column="16" selection-end-line="119" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test2_3x3.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test2_3x3.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="92" column="18" selection-start-line="92" selection-start-column="18" selection-end-line="92" selection-end-column="18" />
-              <folding>
-                <element signature="e#519#948#0" expanded="false" />
-                <element signature="e#954#1581#0" expanded="false" />
-                <element signature="e#1764#2533#0" expanded="false" />
-                <element signature="e#3845#4188#0" expanded="false" />
-                <element signature="e#4977#5468#0" expanded="false" />
-                <element signature="e#5519#7120#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test3_L1.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/test3_L1.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2745">
-              <caret line="183" column="9" selection-start-line="183" selection-start-column="9" selection-end-line="183" selection-end-column="9" />
-              <folding>
-                <element signature="e#5146#6113#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test4_multi_L1.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test4_multi_L1.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="260" column="0" selection-start-line="260" selection-start-column="0" selection-end-line="260" selection-end-column="0" />
+            <state relative-caret-position="165">
+              <caret line="109" column="37" selection-start-line="109" selection-start-column="37" selection-end-line="109" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -145,19 +101,19 @@
         <option value="$PROJECT_DIR$/dataset5_paraFromHik.json" />
         <option value="$PROJECT_DIR$/js/dataset5_paraFromHik.js" />
         <option value="$PROJECT_DIR$/data.json" />
-        <option value="$PROJECT_DIR$/SNIa_KDE_M_0.html" />
         <option value="$PROJECT_DIR$/js/data2.js" />
         <option value="$PROJECT_DIR$/js/data1.js" />
         <option value="$PROJECT_DIR$/SNIa_histo_M_0.html" />
         <option value="$PROJECT_DIR$/SNIa_histo_M_0.html" />
         <option value="$PROJECT_DIR$/test2.html" />
         <option value="$PROJECT_DIR$/js/data5.js" />
-        <option value="$PROJECT_DIR$/js/draw_L3.js" />
-        <option value="$PROJECT_DIR$/SNIa_scatters.html" />
-        <option value="$PROJECT_DIR$/SNIa_scatters.html" />
         <option value="$PROJECT_DIR$/test3_L1.html" />
         <option value="$PROJECT_DIR$/js/data3.js" />
         <option value="$PROJECT_DIR$/test4_multi_L1.html" />
+        <option value="$PROJECT_DIR$/SNIa_KDE_M_0.html" />
+        <option value="$PROJECT_DIR$/SNIa_scatters.html" />
+        <option value="$PROJECT_DIR$/SNIa_scatters.html" />
+        <option value="$PROJECT_DIR$/js/draw_L3.js" />
       </list>
     </option>
   </component>
@@ -366,22 +322,22 @@
       <workItem from="1469281706248" duration="23632000" />
       <workItem from="1470041518508" duration="29734000" />
       <workItem from="1470141596496" duration="3073000" />
-      <workItem from="1470161166874" duration="46468000" />
+      <workItem from="1470161166874" duration="65487000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="244256000" />
+    <option name="totallyTimeSpent" value="263275000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1859375" sideWeight="0.49292928" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1859375" sideWeight="0.49292928" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.04249668" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22177956" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1500664" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25859374" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -414,7 +370,7 @@
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="13" />
+      <option name="time" value="14" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -448,9 +404,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding>
-            <element signature="e#159#33168#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -459,14 +413,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="n#style#0;n#head#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="e#2646#2675#0" expanded="false" />
-            <element signature="e#2959#3008#0" expanded="false" />
-            <element signature="e#3046#3092#0" expanded="false" />
-            <element signature="e#3447#3758#0" expanded="false" />
-            <element signature="e#3799#3878#0" expanded="false" />
-            <element signature="e#4974#5292#0" expanded="false" />
-            <element signature="e#5532#7041#0" expanded="false" />
+            <element signature="e#5923#6241#0" expanded="false" />
+            <element signature="e#6481#7990#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -515,14 +463,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="n#style#0;n#head#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="e#2646#2675#0" expanded="false" />
-            <element signature="e#2959#3008#0" expanded="false" />
-            <element signature="e#3046#3092#0" expanded="false" />
-            <element signature="e#3447#3758#0" expanded="false" />
-            <element signature="e#3799#3878#0" expanded="false" />
-            <element signature="e#4974#5292#0" expanded="false" />
-            <element signature="e#5532#7041#0" expanded="false" />
+            <element signature="e#5923#6241#0" expanded="false" />
+            <element signature="e#6481#7990#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -571,14 +513,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="n#style#0;n#head#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="e#2646#2675#0" expanded="false" />
-            <element signature="e#2959#3008#0" expanded="false" />
-            <element signature="e#3046#3092#0" expanded="false" />
-            <element signature="e#3447#3758#0" expanded="false" />
-            <element signature="e#3799#3878#0" expanded="false" />
-            <element signature="e#4974#5292#0" expanded="false" />
-            <element signature="e#5532#7041#0" expanded="false" />
+            <element signature="e#5923#6241#0" expanded="false" />
+            <element signature="e#6481#7990#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -627,14 +563,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="n#style#0;n#head#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="e#2646#2675#0" expanded="false" />
-            <element signature="e#2959#3008#0" expanded="false" />
-            <element signature="e#3046#3092#0" expanded="false" />
-            <element signature="e#3447#3758#0" expanded="false" />
-            <element signature="e#3799#3878#0" expanded="false" />
-            <element signature="e#4974#5292#0" expanded="false" />
-            <element signature="e#5532#7041#0" expanded="false" />
+            <element signature="e#5923#6241#0" expanded="false" />
+            <element signature="e#6481#7990#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -712,14 +642,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/d3.v4.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/drag_zoom.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -760,51 +682,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SNIa_histo_M_0.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="870">
-          <caret line="59" column="22" selection-start-line="59" selection-start-column="22" selection-end-line="64" selection-end-column="52" />
-          <folding>
-            <element signature="e#397#33406#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/data4.js">
-      <provider selected="true" editor-type-id="LargeFileEditor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SNIa_KDE_M_0.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="11" selection-end-column="33008" />
-          <folding>
-            <element signature="e#159#33168#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/data5.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="33180">
           <caret line="2212" column="74" selection-start-line="2212" selection-start-column="74" selection-end-line="2212" selection-end-column="74" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/draw_L3.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1080">
-          <caret line="119" column="16" selection-start-line="119" selection-start-column="16" selection-end-line="119" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/data2.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="16" selection-start-line="0" selection-start-column="16" selection-end-line="0" selection-end-column="16" />
           <folding />
         </state>
       </provider>
@@ -846,35 +727,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SNIa_scatters.html">
+    <entry file="file://$PROJECT_DIR$/test3_L1.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="146" column="38" selection-start-line="146" selection-start-column="20" selection-end-line="146" selection-end-column="38" />
-          <folding>
-            <element signature="n#style#0;n#head#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="e#2646#2675#0" expanded="false" />
-            <element signature="e#2959#3008#0" expanded="false" />
-            <element signature="e#3046#3092#0" expanded="false" />
-            <element signature="e#3447#3758#0" expanded="false" />
-            <element signature="e#3799#3878#0" expanded="false" />
-            <element signature="e#4974#5292#0" expanded="false" />
-            <element signature="e#5532#7041#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/data1.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="34" selection-start-line="0" selection-start-column="34" selection-end-line="0" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/data3.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="6" column="412" selection-start-line="6" selection-start-column="412" selection-end-line="6" selection-end-column="412" />
+        <state relative-caret-position="2745">
+          <caret line="183" column="9" selection-start-line="183" selection-start-column="9" selection-end-line="183" selection-end-column="9" />
           <folding />
         </state>
       </provider>
@@ -894,21 +750,85 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test4_multi_L1.html">
+    <entry file="file://$PROJECT_DIR$/SNIa_histo_M_0.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="260" column="0" selection-start-line="260" selection-start-column="0" selection-end-line="260" selection-end-column="0" />
+        <state relative-caret-position="285">
+          <caret line="22" column="15" selection-start-line="22" selection-start-column="15" selection-end-line="22" selection-end-column="15" />
+          <folding>
+            <element signature="e#397#33406#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/data4.js">
+      <provider selected="true" editor-type-id="LargeFileEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/d3.v4.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test3_L1.html">
+    <entry file="file://$PROJECT_DIR$/test4_multi_L1.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2745">
-          <caret line="183" column="9" selection-start-line="183" selection-start-column="9" selection-end-line="183" selection-end-column="9" />
+        <state relative-caret-position="255">
+          <caret line="17" column="34" selection-start-line="0" selection-start-column="0" selection-end-line="379" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SNIa_KDE_M_0.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="318" column="34" selection-start-line="318" selection-start-column="34" selection-end-line="318" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/data3.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="6" column="412" selection-start-line="6" selection-start-column="412" selection-end-line="6" selection-end-column="412" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/data1.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="34" selection-start-line="0" selection-start-column="34" selection-end-line="0" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/data2.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="16" selection-start-line="0" selection-start-column="16" selection-end-line="0" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SNIa_scatters.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-210">
+          <caret line="10" column="48" selection-start-line="10" selection-start-column="48" selection-end-line="10" selection-end-column="48" />
           <folding>
-            <element signature="e#5146#6113#0" expanded="false" />
+            <element signature="e#5923#6241#0" expanded="false" />
+            <element signature="e#6481#7990#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/draw_L3.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="109" column="37" selection-start-line="109" selection-start-column="37" selection-end-line="109" selection-end-column="37" />
+          <folding />
         </state>
       </provider>
     </entry>

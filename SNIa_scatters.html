@@ -8,7 +8,7 @@
     <script type="text/javascript" src="js/data1.js"></script>
     <script type="text/javascript" src="js/data2.js"></script>
     <script type="text/javascript" src="js/data3.js"></script>
-    <script type="text/javascript" src="js/data5.js"></script>
+    <script type="text/javascript" src="js/data4.js"></script>
 
     <style type="text/css">
         .axis {
@@ -26,15 +26,6 @@
             pointer-events: all;
         }
 
-        #SNIAText {
-            position: absolute;
-
-        }
-
-        #SNIAText.hidden {
-            display: none;
-        }
-
         #L3Img.hidden0 {
             display: none;
         }
@@ -47,45 +38,73 @@
             opacity: 0.95;
         }
 
-        .mainSVG {
+        #mainSVG {
             background-color: gray;
+        }
+        
+        #L3dialog {
+            position: absolute;
+            width: 60px;
+            height: auto;
+            padding: 10px;
+            background-color: white;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            border-radius: 10px;
+            -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+            -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+            pointer-events: none;
+        }
+
+        #L3dialog.hidden {
+            display: none;
+        }
+
+        #L3dialog p {
+            margin: 0;
+            font-family: sans-serif;
+            font-size: 12px;
+            line-height: 20px;
         }
     </style>
 </head>
 <body>
 
-<div id="SNIAText" class="hidden">
-    <p>SNIA <span id="SNIAID">0</span></p>
-</div>
-
 <div id="L3Img" class="hidden0" width="800" height="600">
+    <svg id="mainSVG"></svg>
 </div>
 
+<div id="L3dialog" class="hidden">
+    <p><strong>SNIa: </strong><span id="L3value"></span></p>
+</div>
 
 <script>
     // true is scatter for M0 and x, false is scatter for M0 and c
     var M0_x = true;
 
     // svg attr
-    var margin = {top: 40, right: 20, bottom: 20, left: 40};
-    var width = 960;
-    var height = 600;
+    var marginL2 = { top: 40, right: 20, bottom: 20, left: 40 };
+    var widthL2 = 960;
+    var heightL2 = 640;
 
+    var chosenSNIa1;
+    var chosenSNIa2;
 
     // create SVG element for drawing scatters
     var svg = d3.select("body")
             .append("svg")
             .attr("class", "svg")
-            .attr("width", width)
-            .attr("height", height);
+            .attr("width", widthL2)
+            .attr("height", heightL2);
 
     // scale functions
     var x = d3.scaleLinear()
             .domain([d3.min(data1, function(d) { return d.m_mu; }), d3.max(data1, function(d) { return d.m_mu; })])
-            .range([0, width - 1]);
+            .range([0, widthL2 - 1]);
     var y = d3.scaleLinear()
             .domain([d3.min(data1, function(d) { return d.x; }), d3.max(data1, function(d) { return d.x; })])
-            .range([height - 1, 0]);
+            .range([heightL2 - 1, 0]);
 
     // x and y axis
     var xAxis = d3.axisTop(x);
@@ -94,7 +113,7 @@
     // create x and y axis
     var gx = svg.append("g")
             .attr("class", "axis")
-            .attr("transform", "translate(0, " + (height - 1)+ ")")
+            .attr("transform", "translate(0, " + (heightL2 - 1)+ ")")
             .call(xAxis);
     var gy = svg.append("g")
             .attr("class", "axis")
@@ -102,9 +121,7 @@
             .call(yAxis);
 
     // define key function
-    var key = function(d) {
-        return d.key;
-    }
+    var key = function(d) { return d.key; }
 
     // group all data dots
     var g_dots = svg.append("g");
@@ -115,12 +132,8 @@
             .enter()
             .append("circle")
             .attr("class", "dot")
-            .attr("cx", function(d) {
-                return x(d.m_mu);
-            })
-            .attr("cy", function(d) {
-                return y(d.x);
-            })
+            .attr("cx", function(d) { return x(d.m_mu); })
+            .attr("cy", function(d) { return y(d.x); })
             .attr("r", 8)
             .attr("fill", function(d) {
                 var color = data2[d.key-1].color;
@@ -129,26 +142,27 @@
                 return "rgb(" + R + ", 0, " + B + ")";
             })
             .on("mouseover", function(d) {
-                d3.select("#SNIAText")
-                        .style("left", (width + 100) + "px")
-                        .style("top", 0 + "px")
-                        .select("#SNIAID")
+                var xPosition = parseFloat(d3.select(this).attr("cx")) + 20;
+                var yPosition = parseFloat(d3.select(this).attr("cy"));
+                d3.select("#L3dialog")
+                        .style("left", xPosition + "px")
+                        .style("top", yPosition + "px")
+                        .select("#L3value")
                         .text(d.key);
 
-                d3.select("#SNIAText").classed("hidden", false);
-
+                d3.select("#L3dialog").classed("hidden", false);
             })
             .on("mouseout", function() {
-                d3.select("#SNIAText").classed("hidden", true);
+                d3.select("#L3dialog").classed("hidden", true);
             })
             .on("click", function(d) {
                 if (d3.select("#L3Img").attr("class") == "hidden0") {
-                    alert(d3.select("#L3Img").attr("class"));
-                    createLevel3Image2(d.key - 1, "red");
+                    chosenSNIa1 = d.key - 1;
+                    createLevel3Image(chosenSNIa1, chosenSNIa2);
                     d3.select("#L3Img").attr("class", "hidden1");
                 } else if (d3.select("#L3Img").attr("class") == "hidden1") {
-                    alert(d3.select("#L3Img").attr("class"));
-                    createLevel3Image2(d.key - 1, "green");
+                    chosenSNIa2 = d.key - 1;
+                    createLevel3Image(chosenSNIa1, chosenSNIa2);
                     d3.select("#L3Img").attr("class", "hidden2");
                 }
             });
@@ -158,14 +172,17 @@
             .on("keydown", function(d) {
                 if (event.key == "Escape") {
                     d3.select("#L3Img").attr("class", "hidden0");
-                    d3.select(".mainSVG").remove();
+                    d3.select("#mainSVG").remove();
+                    d3.select("#L3Img").append("svg").attr("id", "mainSVG");
+                    chosenSNIa1 = undefined;
+                    chosenSNIa2 = undefined;
                 }
             });
 
     // define zoom attr
     var zoom = d3.zoom()
             .scaleExtent([0.75, 20])
-            .translateExtent([[-width/2, -height/2], [width*3/2, height*3/2]])
+            .translateExtent([[-widthL2/2, -heightL2/2], [widthL2*3/2, heightL2*3/2]])
             .on("zoom", function() {
                 // zoom g_dots group
 
@@ -221,17 +238,6 @@
                 //d3.selection.call(zoom.transform, d3.zoomIdentity);
                 //d3.selection.call(zoom.scaleTo, d3.zoomIdentity);
             });
-
-    // create image in level 3
-    function createLevel3Image(SNid) {
-        var imgx = document.createElement("img");
-        imgx.setAttribute("src", "SNIa_pics/" + SNid + ".jpg");
-        imgx.setAttribute("class", "imgx");
-        imgx.setAttribute("width", 400);
-        //imgx.setAttribute("height", 640);
-
-        document.getElementById("L3Img").appendChild(imgx);
-    }
 
     /*
     d3.select("body")
