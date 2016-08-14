@@ -68,14 +68,20 @@ function createLevel3Image(key1, key2) {
 
     // if want to adjust the coordinate, seems both SNIa data are required
     drawHistogram(drawFirst, 0, M0Extent, M0[key1], M0[key2]);
-    drawScatter(drawFirst, 1, x1StarExtent, M0Extent, x1Star[key1], M0[key1], dataset2.x1Star, dataset2.M0);
-    drawScatter(drawFirst, 2, cStarExtent, M0Extent, cStar[key1], M0[key1], dataset2.cStar, dataset2.M0);
-    drawScatter(drawFirst, 3, M0Extent, x1StarExtent, M0[key1], x1Star[key1], dataset2.M0, dataset2.x1Star);
+    drawHistogramCoordinates(0, "M0");
+    drawScatter(drawFirst, 1, M0Extent, x1StarExtent, M0[key1], x1Star[key1], dataset2.M0, dataset2.x1Star);
+    drawScatterCoordinates(1, "M0", "x1*");
+    drawScatter(drawFirst, 2, M0Extent, cStarExtent, M0[key1], cStar[key1], dataset2.M0, dataset2.cStar);
+    drawScatterCoordinates(2, "M0", "c*");
+    //drawScatter(drawFirst, 3, M0Extent, x1StarExtent, M0[key1], x1Star[key1], dataset2.M0, dataset2.x1Star);
     drawHistogram(drawFirst, 4, x1StarExtent, x1Star[key1], x1Star[key2]);
-    drawScatter(drawFirst, 5, cStarExtent, x1StarExtent, cStar[key1], x1Star[key1], dataset2.cStar, dataset2.x1Star);
-    drawScatter(drawFirst, 6, M0Extent, cStarExtent, M0[key1], cStar[key1], dataset2.M0, dataset2.cStar);
-    drawScatter(drawFirst, 7, x1StarExtent, cStarExtent, x1Star[key1], cStar[key1], dataset2.x1Star, dataset2.cStar);
+    drawHistogramCoordinates(4, "x1*");
+    drawScatter(drawFirst, 5, x1StarExtent, cStarExtent, x1Star[key1], cStar[key1], dataset2.x1Star, dataset2.cStar);
+    drawScatterCoordinates(5, "x1*", "c*");
+    //drawScatter(drawFirst, 6, M0Extent, cStarExtent, M0[key1], cStar[key1], dataset2.M0, dataset2.cStar);
+    //drawScatter(drawFirst, 7, x1StarExtent, cStarExtent, x1Star[key1], cStar[key1], dataset2.x1Star, dataset2.cStar);
     drawHistogram(drawFirst, 8, cStarExtent, cStar[key1], cStar[key2]);
+    drawHistogramCoordinates(8, "c*");
 
 
     if (drawFirst) {
@@ -133,18 +139,18 @@ function drawHistogram(drawFirst, id, xExtent, xData1, xData2) {
         .append("svg")
         .attr("id", "svg" + id)
         .attr("class", "miniSVG histogram")
-        .attr("width", width33 + (margin33.left + margin33.right))
-        .attr("height", height33 + (margin33.top + margin33.bottom))
+        .attr("width", width33 + margin33.left + margin33.right)
+        .attr("height", height33 + margin33.top + margin33.bottom)
         .attr("x", xPos*(margin33.left + margin33.right) + (xPos-1)*width33)
         .attr("y", yPos*(margin33.top + margin33.bottom) + (yPos-1)*height33);
 
-    var x = d3.select("#svg" + id)
-        .append("g")
-        .attr("class", "axisX" + id)
-        .attr("transform", "translate(0," + height33 + ")")
-        .call(d3.axisBottom(histX));
-
     if (drawFirst) {
+        var x = d3.select("#svg" + id)
+            .append("g")
+            .attr("class", "axisX" + id)
+            .attr("transform", "translate(0," + height33 + ")")
+            .call(d3.axisBottom(histX));
+
         d3.select("#svg" + id)
             .append("g")
             .attr("id", "g1")
@@ -156,8 +162,7 @@ function drawHistogram(drawFirst, id, xExtent, xData1, xData2) {
             .attr("x", 1)
             .attr("width", function(d) { return histX(d.x1) - histX(d.x0) - 2; })
             .attr("height", function(d) { return height33 - histY(d.length); })
-            .attr("fill", "red")
-            .attr("opacity", "0.8");
+            .attr("fill", "red");
     } else {
         d3.select(".axisX" + id).remove();
         d3.select("#svg" + id).select("#g1").remove();
@@ -224,7 +229,7 @@ function drawScatter(drawFirst, id, xExtent, yExtent, xData1, yData1, xData2, yD
             .append("g")
             .attr("class", "axisX" + id)
             .attr("transform", "translate(" + 0 + ", " + height33 + ")")
-            .call(d3.axisTop(x).ticks(5));
+            .call(d3.axisBottom(x).ticks(5));
 
         d3.select("#svg" + id)
             .append("g")
@@ -242,8 +247,7 @@ function drawScatter(drawFirst, id, xExtent, yExtent, xData1, yData1, xData2, yD
             .attr("cx", function(d) { return x(xData1[d]); })
             .attr("cy", function(d) { return y(yData1[d]); })
             .attr("r", 2)
-            .attr("fill", "red")
-            .attr("opacity", "0.8");
+            .attr("fill", "red");
     } else {
         d3.select(".axisX" + id).remove();
         d3.select(".axisY" + id).remove();
@@ -252,7 +256,7 @@ function drawScatter(drawFirst, id, xExtent, yExtent, xData1, yData1, xData2, yD
             .append("g")
             .attr("class", "axisX" + id)
             .attr("transform", "translate(" + 0 + ", " + height33 + ")")
-            .call(d3.axisTop(x).ticks(5));
+            .call(d3.axisBottom(x).ticks(5));
 
         d3.select("#svg" + id)
             .append("g")
@@ -262,7 +266,8 @@ function drawScatter(drawFirst, id, xExtent, yExtent, xData1, yData1, xData2, yD
 
         d3.select("#svg" + id).select("#g1").selectAll("circle")
             .attr("cx", function(d) { return x(xData1[d]); })
-            .attr("cy", function(d) { return y(yData1[d]); });
+            .attr("cy", function(d) { return y(yData1[d]); })
+            .attr("opacity", "0.8");
 
         d3.select("#svg" + id)
             .append("g")
@@ -277,6 +282,30 @@ function drawScatter(drawFirst, id, xExtent, yExtent, xData1, yData1, xData2, yD
             .attr("fill", "green")
             .attr("opacity", "0.8");
     }
+}
+
+function drawHistogramCoordinates(id, xLabel) {
+    d3.select("#svg" + id)
+        .append("text")
+        .attr("x", width33)
+        .attr("y", height33 + 2 * margin33.bottom)
+        .style("text-anchor", "middle")
+        .text(xLabel);
+}
+
+function drawScatterCoordinates(id, xLabel, yLabel) {
+    d3.select("#svg" + id)
+        .append("text")
+        .attr("x", width33)
+        .attr("y", height33 + 2 * margin33.bottom)
+        .style("text-anchor", "middle")
+        .text(xLabel);
+    d3.select("#svg" + id)
+        .append("text")
+        .attr("x", 15)
+        .attr("y", 10)
+        .style("text-anchor", "middle")
+        .text(yLabel);
 }
 
 function zoomHistogram(data, gid) {
