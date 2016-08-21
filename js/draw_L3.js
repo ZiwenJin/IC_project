@@ -1,9 +1,17 @@
 
-var widthL3 = 900;
-var heightL3 = 600;
+/*
+var widthL3 = 800;
+var heightL3 = 800;
 var width33 = Math.floor(widthL3 / 4);
 var height33 = Math.floor(heightL3 / 4);
 var margin33 = { top: Math.floor(heightL3 / 32), right: Math.floor(widthL3 / 32), bottom: Math.floor(heightL3 / 32), left: Math.floor(widthL3 / 32) };
+*/
+
+var width33 = 200;
+var height33 = 200;
+var margin33 = { top: 20, right: 20, bottom: 20, left: 20 };
+var widthL3 = width33 * 4 + margin33.left * 11;
+var heightL3 = height33 * 3 + margin33.top * 8;
 
 /*
 function createLevel3Image2(key1, key2) {
@@ -73,22 +81,29 @@ function createLevel3Image(key1, key2) {
     drawScatterCoordinates(1, "M0", "x1*");
     drawScatter(drawFirst, 2, M0Extent, cStarExtent, M0[key1], cStar[key1], dataset2.M0, dataset2.cStar);
     drawScatterCoordinates(2, "M0", "c*");
-    //drawScatter(drawFirst, 3, M0Extent, x1StarExtent, M0[key1], x1Star[key1], dataset2.M0, dataset2.x1Star);
-    drawHistogram(drawFirst, 4, x1StarExtent, x1Star[key1], x1Star[key2]);
-    drawHistogramCoordinates(4, "x1*");
-    drawScatter(drawFirst, 5, x1StarExtent, cStarExtent, x1Star[key1], cStar[key1], dataset2.x1Star, dataset2.cStar);
-    drawScatterCoordinates(5, "x1*", "c*");
-    //drawScatter(drawFirst, 6, M0Extent, cStarExtent, M0[key1], cStar[key1], dataset2.M0, dataset2.cStar);
-    //drawScatter(drawFirst, 7, x1StarExtent, cStarExtent, x1Star[key1], cStar[key1], dataset2.x1Star, dataset2.cStar);
-    drawHistogram(drawFirst, 8, cStarExtent, cStar[key1], cStar[key2]);
-    drawHistogramCoordinates(8, "c*");
+    drawHistogram(drawFirst, 5, x1StarExtent, x1Star[key1], x1Star[key2]);
+    drawHistogramCoordinates(5, "x1*");
+    drawScatter(drawFirst, 6, x1StarExtent, cStarExtent, x1Star[key1], cStar[key1], dataset2.x1Star, dataset2.cStar);
+    drawScatterCoordinates(6, "x1*", "c*");
+    drawHistogram(drawFirst, 10, cStarExtent, cStar[key1], cStar[key2]);
+    drawHistogramCoordinates(10, "c*");
+
+    // testing: draw scatter between M0, x1*, c*
+    if (!drawFirst) {
+        drawScatter2(3, d3.extent(M0[key1]), d3.extent(M0[key2]), M0[key1], M0[key2]);
+        drawScatterCoordinates(3, "M0["+(key1+1)+"]", "M0["+(key2+1)+"]");
+        drawScatter2(7, d3.extent(x1Star[key1]), d3.extent(x1Star[key2]), x1Star[key1], x1Star[key2]);
+        drawScatterCoordinates(7, "c*["+(key1+1)+"]", "c*["+(key2+1)+"]");
+        drawScatter2(11, d3.extent(cStar[key1]), d3.extent(cStar[key2]), cStar[key1], cStar[key2]);
+        drawScatterCoordinates(11, "x1*["+(key1+1)+"]", "x1*["+(key2+1)+"]");
+    }
 
 
     if (drawFirst) {
         d3.select("#mainSVG")
             .append("text")
             .attr("x", 20)
-            .attr("y", 15)
+            .attr("y", heightL3 - 50)
             .text(function (d) {
                 return "red: " + (key1+1);
             })
@@ -97,7 +112,7 @@ function createLevel3Image(key1, key2) {
         d3.select("#mainSVG")
             .append("text")
             .attr("x", 20)
-            .attr("y", 35)
+            .attr("y", heightL3 - 30)
             .text(function (d) {
                 return "green: " + (key2+1);
             })
@@ -133,8 +148,8 @@ function drawHistogram(drawFirst, id, xExtent, xData1, xData2) {
     }
 
     // id = [0, ..., 8]
-    var xPos = id % 3 + 1;
-    var yPos = Math.floor(id / 3) + 1;
+    var xPos = id % 4 + 1;
+    var yPos = Math.floor(id / 4) + 1;
     d3.select("#mainSVG")
         .append("svg")
         .attr("id", "svg" + id)
@@ -212,8 +227,8 @@ function drawScatter(drawFirst, id, xExtent, yExtent, xData1, yData1, xData2, yD
         .range([height33, 0]);
 
     // id = [0, ..., 8]
-    var xPos = id % 3 + 1;
-    var yPos = Math.floor(id / 3) + 1;
+    var xPos = id % 4 + 1;
+    var yPos = Math.floor(id / 4) + 1;
 
     d3.select("#mainSVG")
         .append("svg")
@@ -246,7 +261,7 @@ function drawScatter(drawFirst, id, xExtent, yExtent, xData1, yData1, xData2, yD
             .append("circle")
             .attr("cx", function(d) { return x(xData1[d]); })
             .attr("cy", function(d) { return y(yData1[d]); })
-            .attr("r", 2)
+            .attr("r", 1)
             .attr("fill", "red");
     } else {
         d3.select(".axisX" + id).remove();
@@ -278,17 +293,64 @@ function drawScatter(drawFirst, id, xExtent, yExtent, xData1, yData1, xData2, yD
             .append("circle")
             .attr("cx", function(d) { return x(xData2[d]); })
             .attr("cy", function(d) { return y(yData2[d]); })
-            .attr("r", 2)
+            .attr("r", 1)
             .attr("fill", "green")
             .attr("opacity", "0.8");
     }
 }
 
+function drawScatter2(id, xExtent, yExtent, xData, yData) {
+    var x = d3.scaleLinear()
+        .domain(xExtent)
+        .range([0, width33]);
+    var y = d3.scaleLinear()
+        .domain(yExtent)
+        .range([height33, 0]);
+
+    // id = [0, ..., 8]
+    var xPos = id % 4 + 1;
+    var yPos = Math.floor(id / 4) + 1;
+
+    d3.select("#mainSVG")
+        .append("svg")
+        .attr("id", "svg" + id)
+        .attr("class", "miniSVG scatter")
+        .attr("width", width33 + margin33.left + margin33.right)
+        .attr("height", height33 + margin33.top + margin33.bottom)
+        .attr("x", xPos*(margin33.left + margin33.right) + (xPos-1)*width33)
+        .attr("y", yPos*(margin33.top + margin33.bottom) + (yPos-1)*height33);
+
+
+        d3.select("#svg" + id)
+            .append("g")
+            .attr("class", "axisX" + id)
+            .attr("transform", "translate(" + 0 + ", " + height33 + ")")
+            .call(d3.axisBottom(x).ticks(5));
+
+        d3.select("#svg" + id)
+            .append("g")
+            .attr("class", "axisY" + id)
+            .attr("transform", "translate(" + 0 + ", 0)")
+            .call(d3.axisRight(y).ticks(5));
+
+        d3.select("#svg" + id)
+            .append("g")
+            .attr("id", "g1")
+            .selectAll("circle")
+            .data(d3.range(xData.length))  // .data(d3.range(xData.length))
+            .enter()
+            .append("circle")
+            .attr("cx", function(d) { return x(xData[d]); })
+            .attr("cy", function(d) { return y(yData[d]); })
+            .attr("r", 1)
+            .attr("fill", "blue");
+}
+
 function drawHistogramCoordinates(id, xLabel) {
     d3.select("#svg" + id)
         .append("text")
-        .attr("x", width33)
-        .attr("y", height33 + 2 * margin33.bottom)
+        .attr("x", width33 - 20)
+        .attr("y", height33 + margin33.bottom + 10)
         .style("text-anchor", "middle")
         .text(xLabel);
 }
@@ -296,15 +358,13 @@ function drawHistogramCoordinates(id, xLabel) {
 function drawScatterCoordinates(id, xLabel, yLabel) {
     d3.select("#svg" + id)
         .append("text")
-        .attr("x", width33)
-        .attr("y", height33 + 2 * margin33.bottom)
-        .style("text-anchor", "middle")
+        .attr("x", width33 - 20)
+        .attr("y", height33 + margin33.bottom + 10)
         .text(xLabel);
     d3.select("#svg" + id)
         .append("text")
-        .attr("x", 15)
-        .attr("y", 10)
-        .style("text-anchor", "middle")
+        .attr("x", 30)
+        .attr("y", 12)
         .text(yLabel);
 }
 

@@ -1,8 +1,9 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Multi-L1</title>
+    <title>L1_KDE_M0</title>
     <script type="text/javascript" src="js/d3.v4.js"></script>
     <script type="text/javascript" src="js/data1.js"></script>
     <script type="text/javascript" src="js/data2.js"></script>
@@ -139,8 +140,9 @@
 
     var NUM = 740;
     var marginL1 = { top: 20, right: 20, bottom: 40, left: 30 };
-    var widthL1 = 600 - marginL1.left - marginL1.right;
-    var heightL1 = 400 - marginL1.top - marginL1.bottom;
+    var widthL1 = screen.width / 2 - marginL1.left - marginL1.right - 50;
+    var heightL1 = screen.height / 2;
+
 
     var hMIN = 0.001;
     var hMAX = 0.1;
@@ -303,7 +305,6 @@
                 .attr("width", widthL1 + marginL1.left + marginL1.right)
                 .attr("height", heightL1 + marginL1.top + marginL1.bottom)
                 .append("g")
-                .attr("id", "L1KDEplot2")
                 .attr("transform", "translate(" + marginL1.left + ", " + marginL1.top + ")");
 
         svg2.append("g")
