@@ -70,18 +70,18 @@
             line-height: 20px;
         }
 
-        .L1hSlider1, .L1vSlider1, .L1hSlider2, .L1vSlider2 {
+        .L1hSlider1, .L1hSlider2 {
             width: 90%;
             background-color: #f9f9f9;
             border: solid 1px #ddd;
             padding: 10px;
         }
-        .L1hInput1, .L1vInput1, .L1hInput2, .L1vInput2 {
+        .L1hInput1, .L1hInput2 {
             margin: 0px 7% 0px 2%;
             width: 80%;
             display: inline-block;
         }
-        .L1hInput1 > .ui-slider-handle, .L1vInput1 > .ui-slider-handle, .L1hInput2 > .ui-slider-handle, .L1vInput2 > .ui-slider-handle {
+        .L1hInput1 > .ui-slider-handle, .L1hInput2 > .ui-slider-handle {
             text-decoration: none;
             width: 35px;
             text-align: center;
@@ -108,28 +108,18 @@
         <g class="L1plot1">
             <h2 class="sliderHeader1">M0 Slider</h2>
             <div class="L1hSlider1">
-                <span>&nbsp;&nbsp;&nbsp;h: 0</span>
+                <p><span class="L1hCurrent1"></span></p>
+                <span>&nbsp;&nbsp;&nbsp;scale: </span>
                 <div class="L1hInput1"></div>
-                <span>100</span>
-            </div>
-            <div class="L1vSlider1">
-                <span>var: 0</span>
-                <div class="L1vInput1"></div>
-                <span>100</span>
             </div>
         </g>
 
         <g class="L1plot2">
             <h2 class="sliderHeader2">&Sigma;<sub>res</sub> Slider</h2>
             <div class="L1hSlider2">
-                <span>&nbsp;&nbsp;&nbsp;h: 0</span>
+                <p><span class="L1hCurrent2"></span></p>
+                <span>&nbsp;&nbsp;&nbsp;scale: </span>
                 <div class="L1hInput2"></div>
-                <span>100</span>
-            </div>
-            <div class="L1vSlider2">
-                <span>var: 0</span>
-                <div class="L1vInput2"></div>
-                <span>100</span>
             </div>
         </g>
 
@@ -141,28 +131,18 @@
         <g class="L1plot1">
             <h2 class="sliderHeader1">x1<sup>*</sup> Slider</h2>
             <div class="L1hSlider1">
-                <span>&nbsp;&nbsp;&nbsp;h: 0</span>
+                <p><span class="L1hCurrent1"></span></p>
+                <span>&nbsp;&nbsp;&nbsp;scale: </span>
                 <div class="L1hInput1"></div>
-                <span>100</span>
-            </div>
-            <div class="L1vSlider1">
-                <span>var: 0</span>
-                <div class="L1vInput1"></div>
-                <span>100</span>
             </div>
         </g>
 
         <g class="L1plot2">
             <h2 class="sliderHeader2">Rx Slider</h2>
             <div class="L1hSlider2">
-                <span>&nbsp;&nbsp;&nbsp;h: 0</span>
+                <p><span class="L1hCurrent2"></span></p>
+                <span>&nbsp;&nbsp;&nbsp;scale: </span>
                 <div class="L1hInput2"></div>
-                <span>100</span>
-            </div>
-            <div class="L1vSlider2">
-                <span>var: 0</span>
-                <div class="L1vInput2"></div>
-                <span>100</span>
             </div>
         </g>
 
@@ -174,28 +154,18 @@
         <g class="L1plot1">
             <h2 class="sliderHeader1">c<sup>*</sup> Slider</h2>
             <div class="L1hSlider1">
-                <span>&nbsp;&nbsp;&nbsp;h: 0</span>
+                <p><span class="L1hCurrent1"></span></p>
+                <span>&nbsp;&nbsp;&nbsp;scale: </span>
                 <div class="L1hInput1"></div>
-                <span>100</span>
-            </div>
-            <div class="L1vSlider1">
-                <span>var: 0</span>
-                <div class="L1vInput1"></div>
-                <span>100</span>
             </div>
         </g>
 
         <g class="L1plot2">
             <h2 class="sliderHeader2">Rc Slider</h2>
             <div class="L1hSlider2">
-                <span>&nbsp;&nbsp;&nbsp;h: 0</span>
+                <p><span class="L1hCurrent2"></span></p>
+                <span>&nbsp;&nbsp;&nbsp;scale: </span>
                 <div class="L1hInput2"></div>
-                <span>100</span>
-            </div>
-            <div class="L1vSlider2">
-                <span>var: 0</span>
-                <div class="L1vInput2"></div>
-                <span>100</span>
             </div>
         </g>
 
@@ -207,28 +177,18 @@
         <g class="L1plot1">
             <h2 class="sliderHeader1">&Omega;<sub>m</sub> Slider</h2>
             <div class="L1hSlider1">
-                <span>&nbsp;&nbsp;&nbsp;h: 0</span>
+                <p><span class="L1hCurrent1"></span></p>
+                <span>&nbsp;&nbsp;&nbsp;scale: </span>
                 <div class="L1hInput1"></div>
-                <span>100</span>
-            </div>
-            <div class="L1vSlider1">
-                <span>var: 0</span>
-                <div class="L1vInput1"></div>
-                <span>100</span>
             </div>
         </g>
 
         <g class="L1plot2">
             <h2 class="sliderHeader2">&Omega;<sub>&lambda;</sub> Slider</h2>
             <div class="L1hSlider2">
-                <span>&nbsp;&nbsp;&nbsp;h: 0</span>
+                <p><span class="L1hCurrent2"></span></p>
+                <span>&nbsp;&nbsp;&nbsp;scale: </span>
                 <div class="L1hInput2"></div>
-                <span>100</span>
-            </div>
-            <div class="L1vSlider2">
-                <span>var: 0</span>
-                <div class="L1vInput2"></div>
-                <span>100</span>
             </div>
         </g>
 
@@ -236,34 +196,48 @@
             <p><strong>value: </strong><span class="L1value"></span></p>
         </div>
     </div>
-    </div>
 </div>
 
 <!-- Slider -->
 
 <script>
+
+    function standardDeviation(dataset) {
+        var dLen = dataset.length;
+        var sum1 = 0;
+        for (var i=0; i<dLen; i++) {
+            sum1 += dataset[i];
+        }
+        var mean = sum1 / dLen;
+        var sum2 = 0;
+        for (var i=0; i<dLen; i++) {
+            sum2 += (dataset[i] - mean) * (dataset[i] - mean);
+        }
+        return sum2 / dataset.length;
+    }
+
+    function optimalKDEBandWidth(dataset) {
+        var n = dataset.length;
+        var std = standardDeviation(dataset);
+        return Math.pow(4*Math.pow(std, 5) / (3*n), 0.2);
+    }
+
     var NUM = 740;
-    var marginL1 = { top: 20, right: 30, bottom: 40, left: 30 };
+    var marginL1 = { top: 20, right: 30, bottom: 40, left: 40 };
     var widthL1 = $(window).width() / 2 - 3 * marginL1.left;
     var heightL1 = $(window).height() / 2;
 
     function createSliderPanel(pos1, pos2) {
-        // variables, h and var, for sliders
-        var hMIN = 0.001;
-        var hMAX = 0.1;
-        var h = hMIN;
-        var varMIN = 0.05;
-        var varMAX = 0.5;
-        var variance = varMIN;
-
-        // to store KDE result
-        var KDEResult;
-
         // set panel's parameters by pos1 and pos2
         var panel;
         if (pos1 == 1) {
             if (pos2 == 1) { panel = { id: "#L1M0VSSigmaRes", name: "M0", data: M0, dataSimple: M0Simple }; }
             else if (pos2 == 2) { panel = { id: "#L1M0VSSigmaRes", name: "&Sigma;<sub>res</sub>", data: sigmaRes, dataSimple: sigmaResSimple }; }
+
+            if (pos2 == 1) {
+                console.log(optimalKDEBandWidth(panel.data));
+                console.log("");
+            }
         }
         else if (pos1 == 2) {
             if (pos2 == 1) { panel = { id: "#L1x1StarVSRx", name: "x1<sup>*</sup>", data: x1star, dataSimple: x1starSimple }; }
@@ -276,58 +250,46 @@
         else if (pos1 == 4) {
             if (pos2 == 1) { panel = { id: "#L1OmegaMVSOmegaLambda", name: "&Omega;<sub>m</sub>", data: OmegaM, dataSimple: OmegaMSimple }; }
             else if (pos2 == 2) { panel = { id: "#L1OmegaMVSOmegaLambda", name: "&Omega;<sub>&lambda;</sub>", data: OmegaLambda, dataSimple: OmegaLambdaSimple }; }
+
         }
         else { panel = undefined; }  // write exception HERE
 
-        // get 2 sliders
-        var L1hInput = $(panel.id + " .L1hInput" + pos2);
-        var L1vInput = $(panel.id + " .L1vInput" + pos2);
+        // variables, h and var, for sliders
+        var hOPT = optimalKDEBandWidth(panel.data);
+        var h = hOPT;
+        var hMIN = hOPT / 2;
+        var hMAX = hOPT / 2;
 
+        // to store KDE result
+        var KDEResult;
+
+        // get slider
+        var L1hInput = $(panel.id + " .L1hInput" + pos2);
 
         var hUpdateSlide = function(e, ui) {
-            $(panel.id + " .L1hInput" + pos2 + " > .ui-slider-handle").text(ui.value + "%");
+            $(panel.id + " .L1hInput" + pos2 + " > .ui-slider-handle").text(Math.round(ui.value) / 10 + "h");
         };
-        var varUpdateSlide = function(e, ui) {
-            $(panel.id + " .L1vInput" + pos2 + " > .ui-slider-handle").text(ui.value + "%");
-        };
-
 
         var hUpdateStop = function(e, ui) {
-            h = $(panel.id + " .L1hInput" + pos2).slider("option", "value") * (hMAX - hMIN) / 100 + hMIN;
-            $(panel.id + " .L1hInput" + pos2 + " > .ui-slider-handle").text(ui.value + "%");
+            h = $(panel.id + " .L1hInput" + pos2).slider("option", "value") * 0.1 * hOPT;
+            $(panel.id + " .L1hCurrent" + pos2).text("h: " + h);
+            $(panel.id + " .L1hInput" + pos2 + " > .ui-slider-handle").text(Math.round(ui.value) / 10 + "h");
             KDEResult = KernelDensityEstimation(panel.data);
             drawKDE(panel.data, KDEResult);
-        };
-        var varUpdateStop = function(e, ui) {
-            variance = $(panel.id + " .L1vInput" + pos2).slider("option", "value") * (varMAX - varMIN) / 100 + varMIN;
-            $(panel.id + " .L1vInput" + pos2 + " > .ui-slider-handle").text(ui.value + "%");
-            KDEResult = KernelDensityEstimation(panel.data);
-            drawKDE(panel.data, KDEResult);
+            console.log(h);
         };
 
         L1hInput.slider({
-            min: 0,
+            min: 1,
             max: 100,
+            value: 10,
             create: function (e, ui) {
-                h = hMIN;
-                $(".ui-slider-handle").text("0%");
+                $(panel.id + " .L1hCurrent" + pos2).text("h: " + h);
+                $(".ui-slider-handle").text("1h");
             },
             slide: hUpdateSlide,
-            stop: hUpdateStop,
-            value: 0
+            stop: hUpdateStop
         });
-        L1vInput.slider({
-            min: 0,
-            max: 100,
-            create: function (e, ui) {
-                variance = varMIN;
-                $(".ui-slider-handle").text("0%");
-            },
-            slide: varUpdateSlide,
-            stop: varUpdateStop,
-            value: 0
-        });
-
 
         function KernelDensityEstimation(dataset) {
             var extent = d3.extent(dataset);
@@ -346,7 +308,7 @@
             for (var j=0; j<dataset.length; j++) {
                 var resultSingle = [];
                 for (var i=0; i<xDomain.length; i++) {
-                    resultSingle.push(Math.exp(-Math.pow((xDomain[i] - dataset[j]) / h, 2) / (2 * variance * variance)) / Math.sqrt(2*variance*variance*Math.PI));
+                    resultSingle.push(Math.exp(-Math.pow((xDomain[i] - dataset[j]) / h, 2)) / Math.sqrt(Math.PI));
                     resultKDE[i] = resultKDE[i] + resultSingle[i];
 
                 }
@@ -358,7 +320,6 @@
         }
 
         KDEResult = KernelDensityEstimation(panel.data);
-
 
         createCoordinate(KDEResult);
         drawKDE(panel.data, KDEResult);
@@ -437,7 +398,6 @@
                         d3.select(panel.id + " .L1dialog").classed("hidden", true);
                     })
         }
-
     }
 
     createSliderPanel(1, 1);
@@ -450,55 +410,6 @@
     createSliderPanel(4, 2);
 
 </script>
-
-<!--
-<div id="tabs">
-    <ul>
-        <li><a href="#tabs-1">M0 vs &Sigma;<sub>res</sub></a></li>
-        <li><a href="#tabs-2">x1<sup>*</sup> vs Rx</a></li>
-        <li><a href="#tabs-3">c<sup>*</sup> vs Rc</a></li>
-        <li><a href="#tabs-4">&Omega;<sub>m</sub> vs &Omega;<sub>&lambda;</sub></a></li>
-    </ul>
-
-
-    <div id="tabs-1">
-        <script>
-            d3.select("#L1M0VSSigmaRes").classed("hidden", true);
-            d3.select("#L1x1StarVSRx").classed("hidden", false);
-            d3.select("#L1cStarVSRc").classed("hidden", false);
-            d3.select("#L1OmegaMVSOmegaLambda").classed("hidden", false);
-        </script>
-        <p>Proin elit arcu, rutrum commodo, vehicula tempus, commodo a, risus. Curabitur nec arcu. Donec sollicitudin mi sit amet mauris. Nam elementum quam ullamcorper ante. Etiam aliquet massa et lorem. Mauris dapibus lacus auctor risus. Aenean tempor ullamcorper leo. Vivamus sed magna quis ligula eleifend adipiscing. Duis orci. Aliquam sodales tortor vitae ipsum. Aliquam nulla. Duis aliquam molestie erat. Ut et mauris vel pede varius sollicitudin. Sed ut dolor nec orci tincidunt interdum. Phasellus ipsum. Nunc tristique tempus lectus.</p>
-    </div>
-    <div id="tabs-2">
-        <script>
-            d3.select("#L1M0VSSigmaRes").classed("hidden", false);
-            d3.select("#L1x1StarVSRx").classed("hidden", true);
-            d3.select("#L1cStarVSRc").classed("hidden", false);
-            d3.select("#L1OmegaMVSOmegaLambda").classed("hidden", false);
-        </script>
-        <p>Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante, ut pharetra massa metus id nunc. Duis scelerisque molestie turpis. Sed fringilla, massa eget luctus malesuada, metus eros molestie lectus, ut tempus eros massa ut dolor. Aenean aliquet fringilla sem. Suspendisse sed ligula in ligula suscipit aliquam. Praesent in eros vestibulum mi adipiscing adipiscing. Morbi facilisis. Curabitur ornare consequat nunc. Aenean vel metus. Ut posuere viverra nulla. Aliquam erat volutpat. Pellentesque convallis. Maecenas feugiat, tellus pellentesque pretium posuere, felis lorem euismod felis, eu ornare leo nisi vel felis. Mauris consectetur tortor et purus.</p>
-    </div>
-    <div id="tabs-3">
-        <script>
-            d3.select("#L1M0VSSigmaRes").classed("hidden", false);
-            d3.select("#L1x1StarVSRx").classed("hidden", false);
-            d3.select("#L1cStarVSRc").classed("hidden", true);
-            d3.select("#L1OmegaMVSOmegaLambda").classed("hidden", false);
-        </script>
-        <p>Mauris eleifend est et turpis. Duis id erat. Suspendisse potenti. Aliquam vulputate, pede vel vehicula accumsan, mi neque rutrum erat, eu congue orci lorem eget lorem. Vestibulum non ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce sodales. Quisque eu urna vel enim commodo pellentesque. Praesent eu risus hendrerit ligula tempus pretium. Curabitur lorem enim, pretium nec, feugiat nec, luctus a, lacus.</p>
-    </div>
-    <div id="tabs-4">
-        <script>
-            d3.select("#L1M0VSSigmaRes").classed("hidden", false);
-            d3.select("#L1x1StarVSRx").classed("hidden", false);
-            d3.select("#L1cStarVSRc").classed("hidden", false);
-            d3.select("#L1OmegaMVSOmegaLambda").classed("hidden", true);
-        </script>
-        <p>Mauris eleifend est et turpis. Duis id erat. Suspendisse potenti. Aliquam vulputate, pede vel vehicula accumsan, mi neque rutrum erat, eu congue orci lorem eget lorem. Vestibulum non ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce sodales. Quisque eu urna vel enim commodo pellentesque. Praesent eu risus hendrerit ligula tempus pretium. Curabitur lorem enim, pretium nec, feugiat nec, luctus a, lacus.</p>
-    </div>
-</div>
--->
 
 </body>
 </html>

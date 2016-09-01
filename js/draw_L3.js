@@ -105,9 +105,9 @@ function createLevel3Image(key1, key2) {
             .attr("x", 20)
             .attr("y", heightL3 - 50)
             .text(function (d) {
-                return "red: " + (key1+1);
+                return "orange: " + (key1+1);
             })
-            .attr("fill", "red");
+            .attr("fill", "orange");
     } else {
         d3.select("#mainSVG")
             .append("text")
@@ -177,7 +177,7 @@ function drawHistogram(drawFirst, id, xExtent, xData1, xData2) {
             .attr("x", 1)
             .attr("width", function(d) { return histX(d.x1) - histX(d.x0) - 2; })
             .attr("height", function(d) { return height33 - histY(d.length); })
-            .attr("fill", "red");
+            .attr("fill", "orange");
     } else {
         d3.select(".axisX" + id).remove();
         d3.select("#svg" + id).select("#g1").remove();
@@ -199,8 +199,8 @@ function drawHistogram(drawFirst, id, xExtent, xData1, xData2) {
             .attr("x", 1)
             .attr("width", function(d) { return histX(d.x1) - histX(d.x0) - 2; })
             .attr("height", function(d) { return height33 - histY(d.length); })
-            .attr("fill", "red")
-            .attr("opacity", "0.8");
+            .attr("fill", "orange")
+            .attr("opacity", "0.7");
 
         d3.select("#svg" + id)
             .append("g")
@@ -214,7 +214,7 @@ function drawHistogram(drawFirst, id, xExtent, xData1, xData2) {
             .attr("width", function(d) { return histX(d.x1) - histX(d.x0) - 2; })
             .attr("height", function(d) { return height33 - histY(d.length); })
             .attr("fill", "green")
-            .attr("opacity", "0.8");
+            .attr("opacity", "0.5");
     }
 }
 
@@ -262,7 +262,7 @@ function drawScatter(drawFirst, id, xExtent, yExtent, xData1, yData1, xData2, yD
             .attr("cx", function(d) { return x(xData1[d]); })
             .attr("cy", function(d) { return y(yData1[d]); })
             .attr("r", 1)
-            .attr("fill", "red");
+            .attr("fill", "orange");
     } else {
         d3.select(".axisX" + id).remove();
         d3.select(".axisY" + id).remove();
