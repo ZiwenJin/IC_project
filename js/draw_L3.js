@@ -1,63 +1,15 @@
 
-/*
-var widthL3 = 800;
-var heightL3 = 800;
-var width33 = Math.floor(widthL3 / 4);
-var height33 = Math.floor(heightL3 / 4);
-var margin33 = { top: Math.floor(heightL3 / 32), right: Math.floor(widthL3 / 32), bottom: Math.floor(heightL3 / 32), left: Math.floor(widthL3 / 32) };
-*/
-
-var width33 = 200;
-var height33 = 200;
-var margin33 = { top: 20, right: 20, bottom: 20, left: 20 };
+var width33 = 165;
+var height33 = 165;
+var margin33 = { top: 20, right: 30, bottom: 20, left: 30 };
 var widthL3 = width33 * 4 + margin33.left * 11;
 var heightL3 = height33 * 3 + margin33.top * 8;
 
-/*
-function createLevel3Image2(key1, key2) {
-    d3.select("#mainSVG")
-        .attr("width", widthL3)
-        .attr("height", heightL3);
-
-    var M0Extent = d3.extent(M0[key1].concat(M0[key2]));
-    var x1StarExtent = d3.extent(x1Star[key1].concat(x1Star[key2]));
-    var cStarExtent = d3.extent(cStar[key1].concat(cStar[key2]));
-
-    if (key2 == undefined) {
-        drawHistogram(M0Extent, M0[key1], 0, "red");
-        drawScatter(x1StarExtent, M0Extent, x1Star[key], M0[key], 1, "red");
-        drawScatter(cStarExtent, M0Extent, cStar[key], M0[key], 2, "red");
-        drawScatter(M0Extent, x1StarExtent, M0[key], x1Star[key], 3, "red");
-        drawHistogram(x1StarExtent, x1Star[key], 4, "red");
-        drawScatter(cStarExtent, x1StarExtent, cStar[key], x1Star[key], 5, "red");
-        drawScatter(M0Extent, cStarExtent, M0[key], cStar[key], 6, "red");
-        drawScatter(x1StarExtent, cStarExtent, x1Star[key], cStar[key], 7, "red");
-        drawHistogram(cStarExtent, cStar[key], 8, "red");
-    } else {
-        drawHistogram2(M0Extent, M0[key1], M0[key2], 0, "green");
-        drawScatter2(x1StarExtent, M0Extent, x1Star[key], M0[key], 1, "green");
-        drawScatter2(cStarExtent, M0Extent, cStar[key], M0[key], 2, "green");
-        drawScatter2(M0Extent, x1StarExtent, M0[key], x1Star[key], 3, "green");
-        drawHistogram2(x1StarExtent, x1Star[key], 4, "green");
-        drawScatter2(cStarExtent, x1StarExtent, cStar[key], x1Star[key], 5, "green");
-        drawScatter2(M0Extent, cStarExtent, M0[key], cStar[key], 6, "green");
-        drawScatter2(x1StarExtent, cStarExtent, x1Star[key], cStar[key], 7, "green");
-        drawHistogram2(cStarExtent, cStar[key], 8, "green");
-    }
-}
-
-test("a", "b", "c");
-
-function test(p1, p2="ha", p3) {
-    console.log(p1);
-    console.log(p2);
-    console.log(p3);
-}
-*/
-
-
 
 function createLevel3Image(key1, key2) {
+    if (key1 != undefined) { key1 -= 1; }
+    if (key2 != undefined) { key2 -= 1; }
+    
     d3.select("#mainSVG")
         .attr("width", widthL3)
         .attr("height", heightL3);

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="js/d3.v4.js"></script>
+    <script type="text/javascript" src="js/jquery-3.1.0.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.js"></script>
+    <script type="text/javascript" src="js/draw_L3.js"></script>
+    <script type="text/javascript" src="js/dataLevel2.js"></script>
+    <script type="text/javascript" src="js/dataLevel2Color.js"></script>
+    <script type="text/javascript" src="js/dataLevel3Simple.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="js/jquery-ui.css">
+
+    <title>Level 2: Scatters and Correlation</title>
+
+    <style type="text/css">
+        .axis {
+            fill: none;
+            stroke: #000;
+            shape-rendering: crispEdges;
+        }
+
+        #L3Img.hidden0 {
+            display: none;
+        }
+
+        #mainSVG {
+            background-color: white;
+        }
+
+        #L2dialog1, #L2dialog2, #L2dialog3 {
+            position: absolute;
+            width: 180px;
+            height: auto;
+            padding: 10px;
+            background-color: white;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            border-radius: 10px;
+            -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+            -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+            pointer-events: none;
+        }
+
+        #L2dialog1 p, #L2dialog2 p, #L2dialog3 p {
+            margin: 0;
+            font-family: sans-serif;
+            font-size: 12px;
+            line-height: 20px;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+
+    <script>
+        $(function() {
+            $("#tabs").tabs();
+        });
+    </script>
+</head>
+<body>
+
+<div id="tabs">
+    <ul>
+        <li><a href="#L2MBiVSX1i">(M<sub>Bi</sub> - &mu;<sub>i</sub>) vs. x<sub>1i</sub></a></li>
+        <li><a href="#L2MBiVSCi">(M<sub>Bi</sub> - &mu;<sub>i</sub>) vs. c<sub>i</sub></a></li>
+        <li><a href="#L2ZVSMu">z vs. &mu;</a></li>
+        <li><a href="#L3Vis">SN <span id="L3Tab4SN1">?</span> vs. SN <span id="L3Tab4SN2">?</span></a></li>
+    </ul>
+
+    <div id="L2MBiVSX1i" class="L2parent"></div>
+    <div id="L2MBiVSCi" class="L2parent"></div>
+    <div id="L2ZVSMu" class="L2parent"></div>
+    <div id="L3Vis" class="L2parent">
+        <div id="L3Img" class="hidden0" width="800" height="600">
+            <svg id="mainSVG"></svg>
+        </div>
+    </div>
+</div>
+
+<div id="L2dialog1" class="hidden">
+    <p><strong>SNIa: </strong><span class="L2DialogID"></span></p>
+    <p><strong>m<sub>B</sub> - &mu;:&emsp;</strong><span class="L2DialogVarXValue"></span></p>
+    <p><strong>x:&emsp;</strong><span class="L2DialogVarYValue"></span></p>
+</div>
+<div id="L2dialog2" class="hidden">
+    <p><strong>SNIa: </strong><span class="L2DialogID"></span></p>
+    <p><strong>m<sub>B</sub> - &mu;:&emsp;</strong><span class="L2DialogVarXValue"></span></p>
+    <p><strong>c:&emsp;</strong><span class="L2DialogVarYValue"></span></p>
+</div>
+<div id="L2dialog3" class="hidden">
+    <p><strong>SNIa: </strong><span class="L2DialogID"></span></p>
+    <p><strong>redshift:&emsp;</strong><span class="L2DialogVarXValue"></span></p>
+    <p><strong>&mu;:&emsp;</strong><span class="L2DialogVarYValue"></span></p>
+</div>
+
+<script>
+    // svg attr
+    var marginL2 = { top: 40, right: 20, bottom: 20, left: 40 };
+    var widthL2 = $(window).width() * 3 / 4;
+    var heightL2 = $(window).height() * 3 / 4;
+    // store 2 chosen SN ID
+    var chosenSNIa1;
+    var chosenSNIa2;
+    // store zooming event attributes, scale, x, y, for 3 scatters
+    var zoomTransformK = [1, 1, 1];
+    var zoomTransformX = [0, 0, 0];
+    var zoomTransformY = [0, 0, 0];
+
+    // draw scatters
+    drawScatterPlot("L2MBiVSX1i", "m_mu", "x", 1);
+    drawScatterPlot("L2MBiVSCi", "m_mu", "c", 2);
+    drawScatterPlot("L2ZVSMu", "z", "mu", 3);
+
+    // function to draw scatters with specified id, 2 variables, and panel number
+    function drawScatterPlot(panelID, varX, varY, panelNum) {
+        // function to return dataset depends on the variable name
+        function selectData(dataset, varName) {
+            if (varName == "m_mu") { return dataset.m_mu; }
+            else if (varName == "x") { return dataset.x; }
+            else if (varName == "c") { return dataset.c; }
+            else if (varName == "z") { return dataset.z; }
+            else if (varName == "mu") { return dataset.mu; }
+        }
+
+        // create SVG element for drawing scatters
+        var svg = d3.select("#" + panelID)
+                .append("svg")
+                .attr("class", "svg")
+                .attr("width", widthL2)
+                .attr("height", heightL2);
+        // get svg absolute padding, used of later location
+        var div = document.getElementsByClassName("svg")[0];
+        var svgPadding = div.getBoundingClientRect();
+
+        // scale functions
+        var x = d3.scaleLinear()
+                .domain([d3.min(data1, function(d) {
+                    return selectData(d, varX);
+                }), d3.max(data1, function(d) {
+                    return selectData(d, varX);
+                })])
+                .range([0, widthL2 - 1]);
+        var y = d3.scaleLinear()
+                .domain([d3.min(data1, function(d) {
+                    return selectData(d, varY)
+                }), d3.max(data1, function(d) {
+                    return selectData(d, varY)
+                })])
+                .range([heightL2 - 1, 0]);
+
+        // create and put x and y axis
+        var xAxis = d3.axisTop(x);
+        var yAxis = d3.axisRight(y);
+
+        var gx = svg.append("g")
+                .attr("class", "axis")
+                .attr("transform", "translate(0, " + (heightL2 - 1)+ ")")
+                .call(xAxis);
+        var gy = svg.append("g")
+                .attr("class", "axis")
+                .attr("transform", "translate(0, 0)")
+                .call(yAxis);
+
+        // define key function
+        var key = function(d) { return d.key; }
+
+        // group all data dots
+        var g_dots = svg.append("g").attr("class", "dots");
+
+        // create data dots
+        var circles = g_dots.selectAll("circle")
+                .data(data1, key)
+                .enter()
+                .append("circle")
+                .attr("class", "dot")
+                .attr("id", function(d) { return "dot" + d.key; })
+                .attr("cx", function(d) {
+                    return x(selectData(d, varX));
+                })
+                .attr("cy", function(d) {
+                    return y(selectData(d, varY));
+                })
+                .attr("r", 6)
+                .attr("fill", function(d) {
+                    var color = data2[d.key-1].color;
+                    var R = Math.floor((0.3 + color) * 255 / 0.6);
+                    var B = Math.floor((0.3 - color) * 255 / 0.6);
+                    return "rgb(" + R + ", 0, " + B + ")";
+                })
+                .on("mouseover", function(d) {
+                    //var xPosition = (parseFloat(d3.select(this).attr("cx"))) / d3.event.transform.k;
+                    //var yPosition = (parseFloat(d3.select(this).attr("cy"))) / d3.event.transform.k;
+
+                    d3.select("#L2dialog" + panelNum)
+                            .style("left", zoomTransformK[panelNum-1] * x(selectData(d, varX)) + zoomTransformX[panelNum-1] + 40 + "px")
+                            .style("top", zoomTransformK[panelNum-1] * y(selectData(d, varY)) + zoomTransformY[panelNum-1] + 90 + "px")
+                    d3.select("#L2dialog" + panelNum)
+                            .select(".L2DialogID")
+                            .text(d.key);
+                    d3.select("#L2dialog" + panelNum)
+                            .select(".L2DialogVarXValue")
+                            .text(x(selectData(d, varX)));
+                    d3.select("#L2dialog" + panelNum)
+                            .select(".L2DialogVarYValue")
+                            .text(y(selectData(d, varY)));
+                    d3.select("#L2dialog" + panelNum)
+                            .classed("hidden", false);
+                })
+                .on("mouseout", function() {
+                    d3.select("#L2dialog" + panelNum)
+                            .classed("hidden", true);
+                })
+                .on("click", function(d) {
+                    if (d3.select("#L3Img").attr("class") == "hidden0") {
+                        chosenSNIa1 = d.key;
+                        createLevel3Image(chosenSNIa1, chosenSNIa2);
+                        d3.select("#L3Img").attr("class", "hidden1");
+                        // create a new circle to overlap the chosen one, which is also easy to remove
+                        clickOneWorksOnThree(chosenSNIa1, 1, "orange");
+                        d3.select("#L3Tab4SN1").text(d.key);
+                        $(".dot" + chosenSNIa1).toggle( "highlight" );
+                    } else if (d3.select("#L3Img").attr("class") == "hidden1") {
+                        chosenSNIa2 = d.key;
+                        createLevel3Image(chosenSNIa1, chosenSNIa2);
+                        d3.select("#L3Img").attr("class", "hidden2");
+                        clickOneWorksOnThree(chosenSNIa2, 2, "green");
+                        d3.select("#L3Tab4SN2").text(d.key);
+                    }
+                });
+
+        function clickOneWorksOnThree(clickedSN, index, color) {
+            //console.log(d3.selectAll(".dot" + clickedSN));
+            d3.selectAll(".dot" + clickedSN)
+                    .attr("fill", "color");
+
+        }
+
+        function clickOneWorksOnThree2(clickedSN, color) {
+            d3.select("#L2MBiVSX1i")
+                    .select(".dots")
+                    .append("circle")
+                    .attr("class", "chosenDot" + clickedSN)
+                    .attr("cx", zoomTransformK[0] * x(data1[clickedSN-1].m_mu) + zoomTransformX[0] + svgPadding.left)
+                    .attr("cy", zoomTransformK[0] * y(data1[clickedSN-1].x) + zoomTransformY[0] + svgPadding.top)
+                    .attr("r", 8 / zoomTransformK[0])
+                    .attr("fill", color)
+                    .style("pointer-events", "none");
+            d3.select("#L2MBiVSCi")
+                    .select(".dots")
+                    .append("circle")
+                    .attr("class", "chosenDot" + clickedSN)
+                    .attr("cx", zoomTransformK[1] * x(data1[clickedSN-1].m_mu) + zoomTransformX[1] + svgPadding.left)
+                    .attr("cy", zoomTransformK[1] * y(data1[clickedSN-1].c) + zoomTransformY[1] + svgPadding.top)
+                    .attr("r", 8 / zoomTransformK[1])
+                    .attr("fill", color)
+                    .style("pointer-events", "none");
+            d3.select("#L2ZVSMu")
+                    .select(".dots")
+                    .append("circle")
+                    .attr("class", "chosenDot" + clickedSN)
+                    .attr("cx", zoomTransformK[2] * x(data1[clickedSN-1].z) + zoomTransformX[2] + svgPadding.left)
+                    .attr("cy", zoomTransformK[2] * y(data1[clickedSN-1].mu) + zoomTransformY[2] + svgPadding.top)
+                    .attr("r", 8 / zoomTransformK[2])
+                    .attr("fill", color)
+                    .style("pointer-events", "none");
+        }
+
+
+        // press key ESC to conceal L3Img
+        d3.select("body")
+                .on("keydown", function(d) {
+                    if (event.key == "Escape") {
+                        d3.select("#L3Img").attr("class", "hidden0");
+                        d3.select("#mainSVG").remove();
+                        d3.select("#L3Img").append("svg").attr("id", "mainSVG");
+                        d3.selectAll(".chosenDot1").remove();
+                        d3.selectAll(".chosenDot2").remove();
+                        //document.getElementById("dot" + (chosenSNIa1+1)).style.pointerEvents = "auto";
+                        chosenSNIa1 = undefined;
+                        chosenSNIa2 = undefined;
+                        d3.select("#L3Tab4SN1").text("?");
+                        d3.select("#L3Tab4SN2").text("?");
+                    }
+                });
+
+        // define zoom attr
+        var zoom = d3.zoom()
+                .scaleExtent([0.75, 20])
+                .translateExtent([[-widthL2/2, -heightL2/2], [widthL2*3/2, heightL2*3/2]])
+                .on("zoom", function() {
+                    zoomTransformK[panelNum-1] = d3.event.transform.k;
+                    zoomTransformX[panelNum-1] = d3.event.transform.x;
+                    zoomTransformY[panelNum-1] = d3.event.transform.y;
+
+                    // zoom g_dots group
+                    g_dots.attr("transform", d3.event.transform);
+                    circles.attr("r", 6 / d3.event.transform.k);
+                    d3.selectAll(".chosenDot1").attr("r", 8 / d3.event.transform.k);
+                    d3.selectAll(".chosenDot2").attr("r", 8 / d3.event.transform.k);
+
+                    gx.call(xAxis.scale(d3.event.transform.rescaleX(x)));
+                    gy.call(yAxis.scale(d3.event.transform.rescaleY(y)));
+
+                });
+
+        // create a rect for zooming
+        svg.call(zm = zoom);
+
+    }
+
+</script>
+
+<form action="SNIa_KDE.html">
+    <input type="submit" value="Go back to Level 1..." />
+</form>
+
+</body>
+</html>

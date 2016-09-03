@@ -17,13 +17,12 @@
             shape-rendering: crispEdges;
         }
 
-        .dot2 {
-            fill: steelblue;
+        .svg1 {
+            opacity: 1;
         }
 
-        .zoom {
-            fill: none;
-            pointer-events: all;
+        .svg {
+            opacity: 1;
         }
 
         #L3Img.hidden0 {
@@ -42,7 +41,6 @@
             background-color: white;
         }
 
-        
         #L2dialog {
             position: absolute;
             width: 60px;
@@ -86,8 +84,8 @@
     var zIndexMax = 0;
     // svg attr
     var marginL2 = { top: 40, right: 20, bottom: 20, left: 40 };
-    var widthL2 = 900;
-    var heightL2 = 600;
+    var widthL2 = 960;
+    var heightL2 = 640;
 
     var chosenSNIa1;
     var chosenSNIa2;
@@ -95,15 +93,13 @@
     // create SVG element for drawing scatters
     var svg1 = d3.select("body")
             .append("svg")
-            .attr("class", "svg")
-            .attr("width", widthL2)
-            .attr("height", heightL2);
+            .attr("class", "svg1")
+            .attr("width", widthL2 + marginL2.left + marginL2.right)
+            .attr("height", heightL2 + marginL2.top + marginL2.bottom);
 
     var svg = svg1.append("g")
-            .attr("width", widthL2)
-            .attr("height", heightL2)
-            .attr("transform", "scale(1)");
-
+            .attr("class", "svg")
+            .attr("transform", "translate(" + marginL2.left + ", " + marginL2.top + ")");
 
     // scale functions
     var x = d3.scaleLinear()
@@ -174,7 +170,7 @@
                             .attr("id", "chosenDot1")
                             .attr("cx", x(data1[d.key-1].m_mu))
                             .attr("cy", y(data1[d.key-1].x))
-                            .attr("r", 8)
+                            .attr("r", 10)
                             .attr("fill", "orange");
                     //document.getElementById("dot" + d.key).style.pointerEvents = "none";
                 } else if (d3.select("#L3Img").attr("class") == "hidden1") {
@@ -186,7 +182,7 @@
                             .attr("id", "chosenDot2")
                             .attr("cx", x(data1[d.key-1].m_mu))
                             .attr("cy", y(data1[d.key-1].x))
-                            .attr("r", 8)
+                            .attr("r", 10)
                             .attr("fill", "green");
                 }
             });
@@ -214,6 +210,8 @@
                 // zoom g_dots group
                 g_dots.attr("transform", d3.event.transform);
                 circles.attr("r", 8 / d3.event.transform.k);
+                d3.select("#chosenDot1").attr("r", 10 / d3.event.transform.k);
+                d3.select("#chosenDot2").attr("r", 10 / d3.event.transform.k);
 
                 gx.call(xAxis.scale(d3.event.transform.rescaleX(x)));
                 gy.call(yAxis.scale(d3.event.transform.rescaleY(y)));
@@ -264,17 +262,6 @@
                 //d3.selection.call(zoom.transform, d3.zoomIdentity);
                 //d3.selection.call(zoom.scaleTo, d3.zoomIdentity);
             });
-
-    /*
-    d3.select("body")
-            .append("button")
-            .text("turn")
-            .on("click", function() {
-                d3.transition()
-                        .duration(250)
-                        .tween("zoom", svg.call(zoom.translate([0, 0]).scale(1).event));
-            });
-    */
 </script>
 </body>
 </html>
