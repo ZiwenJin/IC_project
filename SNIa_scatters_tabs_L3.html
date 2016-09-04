@@ -82,7 +82,7 @@
 
 <div id="tabs">
     <ul>
-        <li><a href="#L2MBiVSX1i">(M<sub>Bi</sub> - &mu;<sub>i</sub>) vs. x<sub>1i</sub></a></li>
+        <li><a href="#L2MBiVSX1i">(m<sub>Bi</sub> - &mu;<sub>i</sub>) vs. x<sub>1i</sub></a></li>
         <li><a href="#L2MBiVSCi">(M<sub>Bi</sub> - &mu;<sub>i</sub>) vs. c<sub>i</sub></a></li>
         <li><a href="#L2ZVSMu">z vs. &mu;</a></li>
         <li><a href="#L3Vis">SN <span id="L3Tab4SN1">?</span> vs. SN <span id="L3Tab4SN2">?</span></a></li>
@@ -223,11 +223,11 @@
                     // first variable value
                     d3.select("#L2dialog" + panelNum)
                             .select(".L2DialogVarXValue")
-                            .text(x(selectData(d, varX)));
+                            .text(selectData(d, varX));
                     // second variable value
                     d3.select("#L2dialog" + panelNum)
                             .select(".L2DialogVarYValue")
-                            .text(y(selectData(d, varY)));
+                            .text(selectData(d, varY));
                     // cancel hidden
                     d3.select("#L2dialog" + panelNum)
                             .classed("hidden", false);
