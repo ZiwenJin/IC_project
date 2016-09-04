@@ -8,13 +8,17 @@
     <script type="text/javascript" src="js/draw_L3.js"></script>
     <script type="text/javascript" src="js/dataLevel2.js"></script>
     <script type="text/javascript" src="js/dataLevel2Color.js"></script>
-    <script type="text/javascript" src="js/dataLevel3Simple.js"></script>
+    <script type="text/javascript" src="js/dataLevel3.js"></script>
 
     <link rel="stylesheet" type="text/css" href="js/jquery-ui.css">
 
     <title>Level 2: Scatters and Correlation</title>
 
     <style type="text/css">
+        body {
+            font: 12px sans-serif;
+        }
+
         .axis {
             fill: none;
             stroke: #000;
@@ -54,6 +58,14 @@
         .hidden {
             display: none;
         }
+
+        #button3 {
+            color: darkred;
+            height: 40px;
+            width: auto;
+            font-size: 30px;
+        }
+
     </style>
 
     <script>
@@ -62,7 +74,11 @@
         });
     </script>
 </head>
-<body>
+<body background="js/SNIa_explo.jpeg">
+
+<form style="padding-bottom: 10px;" action="SNIa_KDE.html">
+    <input id="button3" type="submit" value="Go back to Level 1..." />
+</form>
 
 <div id="tabs">
     <ul>
@@ -187,100 +203,65 @@
                 })
                 .attr("r", 6)
                 .attr("fill", function(d) {
+                    // use a simple algorithm to transfer B-V index to RGB
+                    // larger B-V, redder; smaller B-V, bluer
                     var color = data2[d.key-1].color;
                     var R = Math.floor((0.3 + color) * 255 / 0.6);
                     var B = Math.floor((0.3 - color) * 255 / 0.6);
                     return "rgb(" + R + ", 0, " + B + ")";
                 })
                 .on("mouseover", function(d) {
-                    //var xPosition = (parseFloat(d3.select(this).attr("cx"))) / d3.event.transform.k;
-                    //var yPosition = (parseFloat(d3.select(this).attr("cy"))) / d3.event.transform.k;
-
+                    // mouseover to show a dialog box
+                    // position
                     d3.select("#L2dialog" + panelNum)
                             .style("left", zoomTransformK[panelNum-1] * x(selectData(d, varX)) + zoomTransformX[panelNum-1] + 40 + "px")
                             .style("top", zoomTransformK[panelNum-1] * y(selectData(d, varY)) + zoomTransformY[panelNum-1] + 90 + "px")
+                    // SNIa ID value
                     d3.select("#L2dialog" + panelNum)
                             .select(".L2DialogID")
                             .text(d.key);
+                    // first variable value
                     d3.select("#L2dialog" + panelNum)
                             .select(".L2DialogVarXValue")
                             .text(x(selectData(d, varX)));
+                    // second variable value
                     d3.select("#L2dialog" + panelNum)
                             .select(".L2DialogVarYValue")
                             .text(y(selectData(d, varY)));
+                    // cancel hidden
                     d3.select("#L2dialog" + panelNum)
                             .classed("hidden", false);
                 })
                 .on("mouseout", function() {
+                    // hidden again
                     d3.select("#L2dialog" + panelNum)
                             .classed("hidden", true);
                 })
                 .on("click", function(d) {
                     if (d3.select("#L3Img").attr("class") == "hidden0") {
+                        // choose first SNIa
                         chosenSNIa1 = d.key;
-                        createLevel3Image(chosenSNIa1, chosenSNIa2);
-                        d3.select("#L3Img").attr("class", "hidden1");
-                        // create a new circle to overlap the chosen one, which is also easy to remove
-                        clickOneWorksOnThree(chosenSNIa1, 1, "orange");
-                        d3.select("#L3Tab4SN1").text(d.key);
-                        $(".dot" + chosenSNIa1).toggle( "highlight" );
+                        createLevel3Image(chosenSNIa1, chosenSNIa2);  // draw L3 image
+                        d3.select("#L3Img").attr("class", "hidden1");  // decide state by hidden
+                        d3.select("#L3Tab4SN1").text(d.key);  // update SN ID in Tab 4
                     } else if (d3.select("#L3Img").attr("class") == "hidden1") {
+                        // choose second SNIa
                         chosenSNIa2 = d.key;
                         createLevel3Image(chosenSNIa1, chosenSNIa2);
                         d3.select("#L3Img").attr("class", "hidden2");
-                        clickOneWorksOnThree(chosenSNIa2, 2, "green");
                         d3.select("#L3Tab4SN2").text(d.key);
                     }
                 });
-
-        function clickOneWorksOnThree(clickedSN, index, color) {
-            //console.log(d3.selectAll(".dot" + clickedSN));
-            d3.selectAll(".dot" + clickedSN)
-                    .attr("fill", "color");
-
-        }
-
-        function clickOneWorksOnThree2(clickedSN, color) {
-            d3.select("#L2MBiVSX1i")
-                    .select(".dots")
-                    .append("circle")
-                    .attr("class", "chosenDot" + clickedSN)
-                    .attr("cx", zoomTransformK[0] * x(data1[clickedSN-1].m_mu) + zoomTransformX[0] + svgPadding.left)
-                    .attr("cy", zoomTransformK[0] * y(data1[clickedSN-1].x) + zoomTransformY[0] + svgPadding.top)
-                    .attr("r", 8 / zoomTransformK[0])
-                    .attr("fill", color)
-                    .style("pointer-events", "none");
-            d3.select("#L2MBiVSCi")
-                    .select(".dots")
-                    .append("circle")
-                    .attr("class", "chosenDot" + clickedSN)
-                    .attr("cx", zoomTransformK[1] * x(data1[clickedSN-1].m_mu) + zoomTransformX[1] + svgPadding.left)
-                    .attr("cy", zoomTransformK[1] * y(data1[clickedSN-1].c) + zoomTransformY[1] + svgPadding.top)
-                    .attr("r", 8 / zoomTransformK[1])
-                    .attr("fill", color)
-                    .style("pointer-events", "none");
-            d3.select("#L2ZVSMu")
-                    .select(".dots")
-                    .append("circle")
-                    .attr("class", "chosenDot" + clickedSN)
-                    .attr("cx", zoomTransformK[2] * x(data1[clickedSN-1].z) + zoomTransformX[2] + svgPadding.left)
-                    .attr("cy", zoomTransformK[2] * y(data1[clickedSN-1].mu) + zoomTransformY[2] + svgPadding.top)
-                    .attr("r", 8 / zoomTransformK[2])
-                    .attr("fill", color)
-                    .style("pointer-events", "none");
-        }
-
 
         // press key ESC to conceal L3Img
         d3.select("body")
                 .on("keydown", function(d) {
                     if (event.key == "Escape") {
                         d3.select("#L3Img").attr("class", "hidden0");
-                        d3.select("#mainSVG").remove();
-                        d3.select("#L3Img").append("svg").attr("id", "mainSVG");
-                        d3.selectAll(".chosenDot1").remove();
-                        d3.selectAll(".chosenDot2").remove();
-                        //document.getElementById("dot" + (chosenSNIa1+1)).style.pointerEvents = "auto";
+                        d3.select("#mainSVG").remove();  // remove mainSVG
+                        d3.select("#L3Img").append("svg").attr("id", "mainSVG");  // create new mainSVG
+
+                        // initial related variables
                         chosenSNIa1 = undefined;
                         chosenSNIa2 = undefined;
                         d3.select("#L3Tab4SN1").text("?");
@@ -290,34 +271,27 @@
 
         // define zoom attr
         var zoom = d3.zoom()
-                .scaleExtent([0.75, 20])
+                .scaleExtent([0.75, 20])  // restrict scale and translate extent
                 .translateExtent([[-widthL2/2, -heightL2/2], [widthL2*3/2, heightL2*3/2]])
                 .on("zoom", function() {
+                    // update corresponding zoom event attributes
                     zoomTransformK[panelNum-1] = d3.event.transform.k;
                     zoomTransformX[panelNum-1] = d3.event.transform.x;
                     zoomTransformY[panelNum-1] = d3.event.transform.y;
 
-                    // zoom g_dots group
-                    g_dots.attr("transform", d3.event.transform);
-                    circles.attr("r", 6 / d3.event.transform.k);
-                    d3.selectAll(".chosenDot1").attr("r", 8 / d3.event.transform.k);
-                    d3.selectAll(".chosenDot2").attr("r", 8 / d3.event.transform.k);
+                    g_dots.attr("transform", d3.event.transform);  // zoom g_dots group
+                    circles.attr("r", 6 / d3.event.transform.k);  // remain dot size
 
-                    gx.call(xAxis.scale(d3.event.transform.rescaleX(x)));
+                    gx.call(xAxis.scale(d3.event.transform.rescaleX(x)));  // rescale x, y axis
                     gy.call(yAxis.scale(d3.event.transform.rescaleY(y)));
 
                 });
 
-        // create a rect for zooming
+        // apply zoom to svg
         svg.call(zm = zoom);
-
     }
 
 </script>
-
-<form action="SNIa_KDE.html">
-    <input type="submit" value="Go back to Level 1..." />
-</form>
 
 </body>
 </html>

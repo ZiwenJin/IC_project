@@ -14,7 +14,7 @@
 
     <style>
         body {
-            font: 10px sans-serif;
+            font: 12px sans-serif;
         }
 
         .axis path,
@@ -37,8 +37,7 @@
         }
 
         .L1parent g {
-            float: left;
-            clear: none;
+            display:inline-block
         }
 
         .L1dialog {
@@ -84,6 +83,12 @@
             text-align: center;
         }
 
+        #button2 {
+            color: darkred;
+            height: 40px;
+            width: auto;
+            font-size: 30px;
+        }
     </style>
 
     <script>
@@ -92,7 +97,11 @@
         });
     </script>
 </head>
-<body>
+<body background="js/SNIa_explo.jpeg">
+
+<form style="padding-left: 80%; padding-bottom: 10px;" action="SNIa_scatters_tabs_L3.html">
+    <input id="button2" type="submit" value="Step into Level 2..." />
+</form>
 
 <div id="tabs">
     <ul>
@@ -101,6 +110,7 @@
         <li><a href="#L1cStarVSRc">c<sup>*</sup> vs. R<sub>c</sub></a></li>
         <li><a href="#L1OmegaMVSOmegaLambda">&Omega;<sub>m</sub> vs. &Omega;<sub>&lambda;</sub></a></li>
     </ul>
+
     <div id="L1M0VSSigmaRes" class="L1parent">
         <g class="L1plot1">
             <h2 class="sliderHeader1">M<sub>0</sub> Slider</h2>
@@ -419,10 +429,6 @@
 
 
 </script>
-
-<form action="SNIa_scatters_tabs_L3.html">
-    <input type="submit" value="Step into Level 2..." />
-</form>
 
 </body>
 </html>
