@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dda3e59e-eff2-4570-a9f1-2e2ecf378ba5" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SNIa_KDE.html" afterPath="$PROJECT_DIR$/SNIa_KDE.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SNIa_scatters_tabs_L3.html" afterPath="$PROJECT_DIR$/SNIa_scatters_tabs_L3.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/draw_L3.js" afterPath="$PROJECT_DIR$/js/draw_L3.js" />
     </list>
     <ignored path="welcome.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -38,33 +40,27 @@
       <file leaf-file-name="SNIa_KDE.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SNIa_KDE.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="102" column="22" selection-start-line="102" selection-start-column="22" selection-end-line="102" selection-end-column="22" />
+            <state relative-caret-position="169">
+              <caret line="325" column="25" selection-start-line="325" selection-start-column="23" selection-end-line="325" selection-end-column="25" />
               <folding>
                 <element signature="n#style#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#g#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="e#6318#6663#0" expanded="false" />
-                <element signature="e#6707#6850#0" expanded="false" />
-                <element signature="e#7179#7446#0" expanded="false" />
-                <element signature="e#7475#7727#0" expanded="false" />
-                <element signature="e#7756#8003#0" expanded="false" />
-                <element signature="e#8032#8349#0" expanded="false" />
-                <element signature="e#8771#8892#0" expanded="false" />
-                <element signature="e#8983#9436#0" expanded="false" />
-                <element signature="e#9492#9857#0" expanded="false" />
-                <element signature="e#10714#10764#0" expanded="false" />
-                <element signature="e#10814#11283#0" expanded="false" />
+                <element signature="n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="e#7365#7569#0" expanded="false" />
+                <element signature="e#10346#10396#0" expanded="false" />
+                <element signature="e#10446#10915#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SNIa_scatters_tabs_L3.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SNIa_scatters_tabs_L3.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SNIa_scatters_tabs_L3.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="229" column="53" selection-start-line="229" selection-start-column="53" selection-end-line="229" selection-end-column="53" />
+            <state relative-caret-position="139">
+              <caret line="169" column="42" selection-start-line="169" selection-start-column="42" selection-end-line="169" selection-end-column="42" />
               <folding>
                 <element signature="n#style#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
@@ -76,11 +72,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="draw_L3.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="draw_L3.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/draw_L3.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="239">
-              <caret line="202" column="33" selection-start-line="202" selection-start-column="33" selection-end-line="202" selection-end-column="33" />
+            <state relative-caret-position="177">
+              <caret line="94" column="12" selection-start-line="94" selection-start-column="9" selection-end-line="94" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -129,9 +125,9 @@
         <option value="$PROJECT_DIR$/js/dataLevel2.js" />
         <option value="$PROJECT_DIR$/SNIa_scatters_tabs.html" />
         <option value="$PROJECT_DIR$/hehe.html" />
-        <option value="$PROJECT_DIR$/SNIa_KDE.html" />
         <option value="$PROJECT_DIR$/welcome_page.html" />
         <option value="$PROJECT_DIR$/js/draw_L3.js" />
+        <option value="$PROJECT_DIR$/SNIa_KDE.html" />
         <option value="$PROJECT_DIR$/SNIa_scatters_tabs_L3.html" />
       </list>
     </option>
@@ -346,12 +342,12 @@
       <workItem from="1472392143338" duration="299000" />
       <workItem from="1472500009616" duration="6304000" />
       <workItem from="1472563469626" duration="9948000" />
-      <workItem from="1472681624692" duration="80263000" />
+      <workItem from="1472681624692" duration="106879000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="396033000" />
+    <option name="totallyTimeSpent" value="422649000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="63" y="32" width="1158" height="712" extended-state="0" />
@@ -360,8 +356,8 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21070811" sideWeight="0.49292928" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.08864697" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14930016" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.08864697" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14930016" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25859374" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -692,21 +688,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/dataLevel1.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding>
-            <element signature="e#13#26414#0" expanded="false" />
-            <element signature="e#26435#52836#0" expanded="false" />
-            <element signature="e#52848#85849#0" expanded="false" />
-            <element signature="e#85865#112775#0" expanded="false" />
-            <element signature="e#112790#142490#0" expanded="false" />
-            <element signature="e#142508#168909#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SNIa_scatters_tabs.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="219">
@@ -714,14 +695,6 @@
           <folding>
             <element signature="n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/dataLevel2Color.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="29" column="142" selection-start-line="29" selection-start-column="142" selection-end-line="29" selection-end-column="142" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -751,33 +724,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SNIa_KDE.html">
+    <entry file="file://$PROJECT_DIR$/js/dataLevel2Color.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="102" column="22" selection-start-line="102" selection-start-column="22" selection-end-line="102" selection-end-column="22" />
-          <folding>
-            <element signature="n#style#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="e#6318#6663#0" expanded="false" />
-            <element signature="e#6707#6850#0" expanded="false" />
-            <element signature="e#7179#7446#0" expanded="false" />
-            <element signature="e#7475#7727#0" expanded="false" />
-            <element signature="e#7756#8003#0" expanded="false" />
-            <element signature="e#8032#8349#0" expanded="false" />
-            <element signature="e#8771#8892#0" expanded="false" />
-            <element signature="e#8983#9436#0" expanded="false" />
-            <element signature="e#9492#9857#0" expanded="false" />
-            <element signature="e#10714#10764#0" expanded="false" />
-            <element signature="e#10814#11283#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/draw_L3.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="202" column="33" selection-start-line="202" selection-start-column="33" selection-end-line="202" selection-end-column="33" />
+        <state relative-caret-position="435">
+          <caret line="29" column="142" selection-start-line="29" selection-start-column="142" selection-end-line="29" selection-end-column="142" />
           <folding />
         </state>
       </provider>
@@ -792,10 +742,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/js/dataLevel1.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="18" column="10" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="10" />
+          <folding>
+            <element signature="e#13#26414#0" expanded="false" />
+            <element signature="e#26435#52836#0" expanded="false" />
+            <element signature="e#52848#85849#0" expanded="false" />
+            <element signature="e#85865#112775#0" expanded="false" />
+            <element signature="e#112790#142490#0" expanded="false" />
+            <element signature="e#142508#168909#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SNIa_KDE.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="325" column="25" selection-start-line="325" selection-start-column="23" selection-end-line="325" selection-end-column="25" />
+          <folding>
+            <element signature="n#style#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#g#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="e#7365#7569#0" expanded="false" />
+            <element signature="e#10346#10396#0" expanded="false" />
+            <element signature="e#10446#10915#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/SNIa_scatters_tabs_L3.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="229" column="53" selection-start-line="229" selection-start-column="53" selection-end-line="229" selection-end-column="53" />
+        <state relative-caret-position="139">
+          <caret line="169" column="42" selection-start-line="169" selection-start-column="42" selection-end-line="169" selection-end-column="42" />
           <folding>
             <element signature="n#style#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
@@ -803,6 +785,14 @@
             <element signature="n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#3;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/draw_L3.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="94" column="12" selection-start-line="94" selection-start-column="9" selection-end-line="94" selection-end-column="12" />
+          <folding />
         </state>
       </provider>
     </entry>

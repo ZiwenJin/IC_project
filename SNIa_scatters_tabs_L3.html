@@ -83,8 +83,8 @@
 <div id="tabs">
     <ul>
         <li><a href="#L2MBiVSX1i">(m<sub>Bi</sub> - &mu;<sub>i</sub>) vs. x<sub>1i</sub></a></li>
-        <li><a href="#L2MBiVSCi">(M<sub>Bi</sub> - &mu;<sub>i</sub>) vs. c<sub>i</sub></a></li>
-        <li><a href="#L2ZVSMu">z vs. &mu;</a></li>
+        <li><a href="#L2MBiVSCi">(m<sub>Bi</sub> - &mu;<sub>i</sub>) vs. c<sub>i</sub></a></li>
+        <li><a href="#L2ZVSMu">z<sub>i</sub> vs. &mu;<sub>i</sub></a></li>
         <li><a href="#L3Vis">SN <span id="L3Tab4SN1">?</span> vs. SN <span id="L3Tab4SN2">?</span></a></li>
     </ul>
 
@@ -128,12 +128,12 @@
     var zoomTransformY = [0, 0, 0];
 
     // draw scatters
-    drawScatterPlot("L2MBiVSX1i", "m_mu", "x", 1);
-    drawScatterPlot("L2MBiVSCi", "m_mu", "c", 2);
-    drawScatterPlot("L2ZVSMu", "z", "mu", 3);
+    drawScatterPlot("L2MBiVSX1i", 1, "m_mu", "x");
+    drawScatterPlot("L2MBiVSCi", 2, "m_mu", "c");
+    drawScatterPlot("L2ZVSMu", 3, "z", "mu");
 
     // function to draw scatters with specified id, 2 variables, and panel number
-    function drawScatterPlot(panelID, varX, varY, panelNum) {
+    function drawScatterPlot(panelID, panelNum, varX, varY) {
         // function to return dataset depends on the variable name
         function selectData(dataset, varName) {
             if (varName == "m_mu") { return dataset.m_mu; }
@@ -240,16 +240,16 @@
                 .on("click", function(d) {
                     if (d3.select("#L3Img").attr("class") == "hidden0") {
                         // choose first SNIa
+                        d3.select("#L3Tab4SN1").text(d.key);  // update SN ID in Tab 4
                         chosenSNIa1 = d.key;
                         createLevel3Image(chosenSNIa1, chosenSNIa2);  // draw L3 image
                         d3.select("#L3Img").attr("class", "hidden1");  // decide state by hidden
-                        d3.select("#L3Tab4SN1").text(d.key);  // update SN ID in Tab 4
                     } else if (d3.select("#L3Img").attr("class") == "hidden1") {
                         // choose second SNIa
+                        d3.select("#L3Tab4SN2").text(d.key);
                         chosenSNIa2 = d.key;
                         createLevel3Image(chosenSNIa1, chosenSNIa2);
                         d3.select("#L3Img").attr("class", "hidden2");
-                        d3.select("#L3Tab4SN2").text(d.key);
                     }
                 });
 

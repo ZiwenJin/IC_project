@@ -102,7 +102,7 @@ function drawHistogram(drawFirst, id, xExtent, xData1, xData2) {
             (xData2);
     }
 
-    // y axis attr depends on both bins
+    // scale function of y axis, depends on both bins
     var histY = d3.scaleLinear()
         .domain([0, d3.max(bins1.concat(bins2), function(d) { return d.length; })])
         .range([height33, 0]);

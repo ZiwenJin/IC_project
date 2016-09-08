@@ -6,7 +6,6 @@
     <script type="text/javascript" src="js/jquery-3.1.0.js"></script>
     <script type="text/javascript" src="js/jquery-ui.js"></script>
     <script type="text/javascript" src="js/dataLevel1.js"></script>
-    <script type="text/javascript" src="js/dataLevel1Simple.js"></script>
 
     <link rel="stylesheet" type="text/css" href="js/jquery-ui.css">
 
@@ -106,8 +105,8 @@
 <div id="tabs">
     <ul>
         <li><a href="#L1M0VSSigmaRes">M<sub>0</sub> vs. &sigma;<sub>res</sub></a></li>
-        <li><a href="#L1x1StarVSRx">x1<sup>*</sup> vs. R<sub>x</sub></a></li>
-        <li><a href="#L1cStarVSRc">c<sup>*</sup> vs. R<sub>c</sub></a></li>
+        <li><a href="#L1x1StarVSRx">x1<sub>*</sub> vs. R<sub>x</sub></a></li>
+        <li><a href="#L1cStarVSRc">c<sub>*</sub> vs. R<sub>c</sub></a></li>
         <li><a href="#L1OmegaMVSOmegaLambda">&Omega;<sub>m</sub> vs. &Omega;<sub>&lambda;</sub></a></li>
     </ul>
 
@@ -136,7 +135,7 @@
     </div>
     <div id="L1x1StarVSRx" class="L1parent">
         <g class="L1plot1">
-            <h2 class="sliderHeader1">x1<sup>*</sup> Slider</h2>
+            <h2 class="sliderHeader1">x1<sub>*</sub> Slider</h2>
             <div class="L1hSlider1">
                 <p><span class="L1hCurrent1"></span></p>
                 <span>scale: </span>
@@ -145,7 +144,7 @@
         </g>
 
         <g class="L1plot2">
-            <h2 class="sliderHeader2">Rx Slider</h2>
+            <h2 class="sliderHeader2">R<sub>x</sub> Slider</h2>
             <div class="L1hSlider2">
                 <p><span class="L1hCurrent2"></span></p>
                 <span>scale: </span>
@@ -153,13 +152,13 @@
             </div>
         </g>
 
-        <div calss="L1dialog" class="hidden">
+        <div class="L1dialog hidden">
             <p><strong>value: </strong><span class="L1value"></span></p>
         </div>
     </div>
     <div id="L1cStarVSRc" class="L1parent">
         <g class="L1plot1">
-            <h2 class="sliderHeader1">c<sup>*</sup> Slider</h2>
+            <h2 class="sliderHeader1">c<sub>*</sub> Slider</h2>
             <div class="L1hSlider1">
                 <p><span class="L1hCurrent1"></span></p>
                 <span>scale: </span>
@@ -168,7 +167,7 @@
         </g>
 
         <g class="L1plot2">
-            <h2 class="sliderHeader2">Rc Slider</h2>
+            <h2 class="sliderHeader2">R<sub>c</sub> Slider</h2>
             <div class="L1hSlider2">
                 <p><span class="L1hCurrent2"></span></p>
                 <span>scale: </span>
@@ -235,20 +234,20 @@
         // set panel's parameters by pos1 and pos2
         var panel;
         if (pos1 == 1) {
-            if (pos2 == 1) { panel = { id: "#L1M0VSSigmaRes", name: "M0", data: M0, dataSimple: M0Simple }; }
-            else if (pos2 == 2) { panel = { id: "#L1M0VSSigmaRes", name: "&Sigma;<sub>res</sub>", data: sigmaRes, dataSimple: sigmaResSimple }; }
+            if (pos2 == 1) { panel = { id: "#L1M0VSSigmaRes", name: "M0", data: M0 }; }
+            else if (pos2 == 2) { panel = { id: "#L1M0VSSigmaRes", name: "&Sigma;<sub>res</sub>", data: sigmaRes }; }
         }
         else if (pos1 == 2) {
-            if (pos2 == 1) { panel = { id: "#L1x1StarVSRx", name: "x1<sup>*</sup>", data: x1star, dataSimple: x1starSimple }; }
-            else if (pos2 == 2) { panel = { id: "#L1x1StarVSRx", name: "Rx", data: Rx, dataSimple: RxSimple }; }
+            if (pos2 == 1) { panel = { id: "#L1x1StarVSRx", name: "x1<sup>*</sup>", data: x1star }; }
+            else if (pos2 == 2) { panel = { id: "#L1x1StarVSRx", name: "Rx", data: Rx }; }
         }
         else if (pos1 == 3) {
-            if (pos2 == 1) { panel = { id: "#L1cStarVSRc", name: "c<sup>*</sup>", data: cstar, dataSimple: cstarSimple }; }
-            else if (pos2 == 2) { panel = { id: "#L1cStarVSRc", name: "Rc", data: Rc, dataSimple: RcSimple }; }
+            if (pos2 == 1) { panel = { id: "#L1cStarVSRc", name: "c<sup>*</sup>", data: cstar }; }
+            else if (pos2 == 2) { panel = { id: "#L1cStarVSRc", name: "Rc", data: Rc }; }
         }
         else if (pos1 == 4) {
-            if (pos2 == 1) { panel = { id: "#L1OmegaMVSOmegaLambda", name: "&Omega;<sub>m</sub>", data: OmegaM, dataSimple: OmegaMSimple }; }
-            else if (pos2 == 2) { panel = { id: "#L1OmegaMVSOmegaLambda", name: "&Omega;<sub>&lambda;</sub>", data: OmegaLambda, dataSimple: OmegaLambdaSimple }; }
+            if (pos2 == 1) { panel = { id: "#L1OmegaMVSOmegaLambda", name: "&Omega;<sub>m</sub>", data: OmegaM }; }
+            else if (pos2 == 2) { panel = { id: "#L1OmegaMVSOmegaLambda", name: "&Omega;<sub>&lambda;</sub>", data: OmegaLambda }; }
         }
 
         // optimal, minimum and maximum value for h;
@@ -296,17 +295,10 @@
             var xDomain = [];
             extent[0] = extent[0] - diff;
             extent[1] = extent[1] + diff;
+
             for (var i=extent[0]; i<=extent[1]; i=i+0.001) {
                 xDomain.push(Math.round(i*10000) / 10000);
             }
-
-
-
-            //console.log(extent);
-            //console.log(xDomain);
-            //console.log("");
-
-
 
             // initial an array to store KDE result
             var resultKDE = [];
@@ -395,9 +387,9 @@
                     .attr("cy", function(d, i) { return y(KDEResult[2][Math.round((dataset[i] - KDEResult[0][0]) / 0.001)]); })
                     .attr("r", 3)
                     .on("mouseover", function(d) {
-                        var xPosition = parseFloat(d3.select(this).attr("cx")) + 50;
+                        var xPosition = parseFloat(d3.select(this).attr("cx")) + 60;
                         if (pos2 == 2) { xPosition += widthL1 + marginL1.left + marginL1.right; }
-                        var yPosition = parseFloat(d3.select(this).attr("cy")) + 130;
+                        var yPosition = parseFloat(d3.select(this).attr("cy")) + 170;
                         d3.select(panel.id + " .L1dialog")
                                 .style("left", xPosition + "px")
                                 .style("top", yPosition + "px")
