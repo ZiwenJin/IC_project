@@ -2,9 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dda3e59e-eff2-4570-a9f1-2e2ecf378ba5" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SNIa_KDE.html" afterPath="$PROJECT_DIR$/SNIa_KDE.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SNIa_scatters_tabs_L3.html" afterPath="$PROJECT_DIR$/SNIa_scatters_tabs_L3.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/draw_L3.js" afterPath="$PROJECT_DIR$/js/draw_L3.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SNIa_KDE_M_0.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SNIa_KDE_before.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SNIa_histo_M_0.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SNIa_scatters.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SNIa_scatters_tabs.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/drag_zoom.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/hehe.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/Chart.Core.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/Chart.Scatter.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/d3.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/echarts.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/rangeslider.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/pan_zoom_axes.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/pan_zoom_axes2.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/scatterPlot.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test2_3x3.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/xMeanSorted.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/zoomInCanvas.html" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/SNIa_KDE.html" afterPath="$PROJECT_DIR$/Level_1_KDE.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/SNIa_scatters_tabs_L3.html" afterPath="$PROJECT_DIR$/Level_2_3_Scatter.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/welcome_page.html" afterPath="$PROJECT_DIR$/Level_0_welcome_page.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="welcome.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,8 +46,8 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="welcome_page.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/welcome_page.html">
+      <file leaf-file-name="Level_0_welcome_page.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Level_0_welcome_page.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="105">
               <caret line="7" column="27" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
@@ -37,10 +58,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SNIa_KDE.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SNIa_KDE.html">
+      <file leaf-file-name="Level_1_KDE.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Level_1_KDE.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="169">
+            <state relative-caret-position="3675">
               <caret line="325" column="25" selection-start-line="325" selection-start-column="23" selection-end-line="325" selection-end-column="25" />
               <folding>
                 <element signature="n#style#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -48,19 +69,19 @@
                 <element signature="n#g#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="e#7365#7569#0" expanded="false" />
-                <element signature="e#10346#10396#0" expanded="false" />
-                <element signature="e#10446#10915#0" expanded="false" />
+                <element signature="e#7361#7565#0" expanded="false" />
+                <element signature="e#10342#10392#0" expanded="false" />
+                <element signature="e#10442#10911#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SNIa_scatters_tabs_L3.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SNIa_scatters_tabs_L3.html">
+      <file leaf-file-name="Level_2_3_Scatter.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Level_2_3_Scatter.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="139">
-              <caret line="169" column="42" selection-start-line="169" selection-start-column="42" selection-end-line="169" selection-end-column="42" />
+            <state relative-caret-position="255">
+              <caret line="17" column="14" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
               <folding>
                 <element signature="n#style#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
@@ -72,11 +93,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="draw_L3.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="draw_L3.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/draw_L3.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="94" column="12" selection-start-line="94" selection-start-column="9" selection-end-line="94" selection-end-column="12" />
+            <state relative-caret-position="117">
+              <caret line="90" column="31" selection-start-line="90" selection-start-column="31" selection-end-line="90" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -129,6 +150,7 @@
         <option value="$PROJECT_DIR$/js/draw_L3.js" />
         <option value="$PROJECT_DIR$/SNIa_KDE.html" />
         <option value="$PROJECT_DIR$/SNIa_scatters_tabs_L3.html" />
+        <option value="$PROJECT_DIR$/Level_1_KDE.html" />
       </list>
     </option>
   </component>
@@ -342,12 +364,12 @@
       <workItem from="1472392143338" duration="299000" />
       <workItem from="1472500009616" duration="6304000" />
       <workItem from="1472563469626" duration="9948000" />
-      <workItem from="1472681624692" duration="106879000" />
+      <workItem from="1472681624692" duration="107428000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="422649000" />
+    <option name="totallyTimeSpent" value="423198000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="63" y="32" width="1158" height="712" extended-state="0" />
@@ -384,27 +406,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/zoomInCanvas.html</url>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="21" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/SNIa_scatters.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#8133#9642#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test2_3x3.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -437,9 +443,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#8133#9642#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -475,9 +479,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#8133#9642#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -530,74 +532,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/zoomInCanvas.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="8" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
-          <folding>
-            <element signature="e#192#21112#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="763" column="30" selection-start-line="763" selection-start-column="30" selection-end-line="763" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pan_zoom_axes.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="27" column="12" selection-start-line="27" selection-start-column="12" selection-end-line="27" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/drag_zoom.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="761" column="5" selection-start-line="761" selection-start-column="5" selection-end-line="761" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SNIa_pics/1.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scatterPlot.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3270">
-          <caret line="820" column="56" selection-start-line="820" selection-start-column="56" selection-end-line="820" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pan_zoom_axes2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="19" column="14" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="8" column="9" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/d3.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="21" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/rangeslider.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5343">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -617,13 +560,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test3_L1.html" />
-    <entry file="file://$PROJECT_DIR$/test2_3x3.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="92" column="18" selection-start-line="92" selection-start-column="18" selection-end-line="92" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/dataLevel3.js">
       <provider selected="true" editor-type-id="LargeFileEditor">
         <state />
@@ -638,21 +574,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test4_multi_L1.html" />
-    <entry file="file://$PROJECT_DIR$/SNIa_histo_M_0.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="26" column="52" selection-start-line="26" selection-start-column="52" selection-end-line="26" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SNIa_KDE_M_0.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="148" column="17" selection-start-line="148" selection-start-column="17" selection-end-line="148" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/data3.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -672,29 +593,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SNIa_KDE_before.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="76" column="26" selection-start-line="76" selection-start-column="26" selection-end-line="76" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/dataLevel1Simple.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SNIa_scatters_tabs.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="120" column="14" selection-start-line="0" selection-start-column="0" selection-end-line="307" selection-end-column="7" />
-          <folding>
-            <element signature="n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -706,39 +609,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SNIa_scatters.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="163" column="44" selection-start-line="163" selection-start-column="44" selection-end-line="163" selection-end-column="44" />
-          <folding>
-            <element signature="e#8133#9642#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hehe.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="11" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/dataLevel2Color.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="435">
           <caret line="29" column="142" selection-start-line="29" selection-start-column="142" selection-end-line="29" selection-end-column="142" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/welcome_page.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="27" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
-          <folding>
-            <element signature="n#style#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -757,9 +632,121 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SNIa_KDE.html">
+    <entry file="file://$PROJECT_DIR$/hehe.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
+        <state relative-caret-position="90">
+          <caret line="6" column="11" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/drag_zoom.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="755" column="42" selection-start-line="755" selection-start-column="42" selection-end-line="755" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pan_zoom_axes.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="28" column="8" selection-start-line="28" selection-start-column="8" selection-end-line="28" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pan_zoom_axes2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="10" column="36" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SNIa_histo_M_0.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="23" column="32126" selection-start-line="23" selection-start-column="32126" selection-end-line="23" selection-end-column="32126" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scatterPlot.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="794" column="42" selection-start-line="794" selection-start-column="42" selection-end-line="794" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SNIa_KDE_before.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="70" column="9" selection-start-line="70" selection-start-column="9" selection-end-line="70" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SNIa_KDE_M_0.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="153" column="0" selection-start-line="153" selection-start-column="0" selection-end-line="153" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SNIa_scatters.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="177" column="64" selection-start-line="177" selection-start-column="64" selection-end-line="177" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SNIa_scatters_tabs.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="111" column="0" selection-start-line="111" selection-start-column="0" selection-end-line="111" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="17" column="20" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test2_3x3.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-675">
+          <caret line="92" column="18" selection-start-line="92" selection-start-column="18" selection-end-line="92" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="765" column="9" selection-start-line="765" selection-start-column="9" selection-end-line="765" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zoomInCanvas.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="750" column="28" selection-start-line="750" selection-start-column="28" selection-end-line="750" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Level_1_KDE.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3675">
           <caret line="325" column="25" selection-start-line="325" selection-start-column="23" selection-end-line="325" selection-end-column="25" />
           <folding>
             <element signature="n#style#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -767,17 +754,48 @@
             <element signature="n#g#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="e#7365#7569#0" expanded="false" />
-            <element signature="e#10346#10396#0" expanded="false" />
-            <element signature="e#10446#10915#0" expanded="false" />
+            <element signature="e#7361#7565#0" expanded="false" />
+            <element signature="e#10342#10392#0" expanded="false" />
+            <element signature="e#10442#10911#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SNIa_scatters_tabs_L3.html">
+    <entry file="file://$PROJECT_DIR$/js/rangeslider.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="169" column="42" selection-start-line="169" selection-start-column="42" selection-end-line="169" selection-end-column="42" />
+        <state relative-caret-position="-1395">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/SNIa_explo.jpeg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Level_0_welcome_page.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="27" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
+          <folding>
+            <element signature="n#style#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/draw_L3.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="117">
+          <caret line="90" column="31" selection-start-line="90" selection-start-column="31" selection-end-line="90" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Level_2_3_Scatter.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="14" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
           <folding>
             <element signature="n#style#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
@@ -785,14 +803,6 @@
             <element signature="n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#3;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/draw_L3.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="94" column="12" selection-start-line="94" selection-start-column="9" selection-end-line="94" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
